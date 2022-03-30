@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="30.516" viewBox="0 0 90 30.516">
+    <defs>
+        <linearGradient id="prefix__linear-gradient" x1=".738" x2=".241" y1=".744" y2=".235" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#6cb555"/>
+            <stop offset="1" stop-color="#2d9541"/>
+        </linearGradient>
+        <style>
+            .prefix__cls-1{fill:#2d9541}.prefix__cls-3{fill:#6cb555}
+        </style>
+    </defs>
+    <g id="prefix__Logo" transform="translate(-125 -326)">
+        <g id="prefix__Group_6" data-name="Group 6" transform="translate(125 326)">
+            <g id="prefix__Group_5" data-name="Group 5">
+                <path id="prefix__Path_1" d="M-1225.988 257.83h-9.846l10.6-29.173 4.923 13.548z" class="prefix__cls-1" data-name="Path 1" transform="translate(1235.834 -227.314)"/>
+                <path id="prefix__Path_2" d="M-1157.125 252.513h-10.209L-1178.423 222h9.846l5.7 15.684h1.3l5.7-15.684h9.846z" class="prefix__cls-1" data-name="Path 2" transform="translate(1190.004 -221.997)"/>
+                <path id="prefix__Path_3" fill="url(#prefix__linear-gradient)" d="M-1037.464 242.355l4.923-13.548 5.109 14.059-4.923 13.548z" data-name="Path 3" transform="translate(1077.478 -227.433)"/>
+                <path id="prefix__Path_4" d="M-985.084 252.513l-5.7-15.684h-1.3l-5.7 15.684h-9.846L-996.536 222h10.209l11.089 30.516z" class="prefix__cls-3" data-name="Path 4" transform="translate(1053.657 -221.997)"/>
+                <path id="prefix__Path_5" d="M-861.689 251.169l-4.923-13.548 5.677-15.621h9.846z" class="prefix__cls-3" data-name="Path 5" transform="translate(941.089 -221.997)"/>
+            </g>
+        </g>
+    </g>
+</svg>
