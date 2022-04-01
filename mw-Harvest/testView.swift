@@ -78,6 +78,7 @@ struct testView: View {
                 }
             }
         }
+        .ignoresSafeArea(.container, edges: .top)
     }
     
     //Tasks View
@@ -171,7 +172,7 @@ struct testView: View {
 
 func HeaderView()->some View {
     
-    HStack(spacing: 170){
+    HStack(spacing: 220){
         
         VStack(alignment: .leading, spacing: 10
         ) {
@@ -189,18 +190,43 @@ func HeaderView()->some View {
         Button {
             
         } label: {
-            Image("plus")
+            Image("profilpic")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 45, height: 45)
                 .clipShape(Circle())
+                .shadow(radius: 25)
+                
+            
         }
+        
     }
     .padding()
+    .padding(.top,getSafeArea().top)
     .background(Color.white)
+    
+    
+    
+}
+
+func getSafeArea()->UIEdgeInsets {
+    
+    guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+        return .zero
+    }
+    
+    guard let safeArea = screen.windows.first?.safeAreaInsets else {
+        return .zero
+    }
+    return safeArea
 }
 
 
+struct testView_Previews: PreviewProvider {
+    static var previews: some View {
+        testView()
+    }
+}
 
 
 // UI Design Helper Functions
@@ -222,12 +248,11 @@ extension View {
             .frame(width: .infinity,alignment: .center
             )
     }
+    
+    // Safe Area
+    
+   
 }
 
 
 
-struct testView_Previews: PreviewProvider {
-    static var previews: some View {
-        testView()
-    }
-}

@@ -13,10 +13,10 @@ class TaskViewModel: ObservableObject{
     //Sample Tasks
     @Published var storedTasks: [Task] = [
         
-        Task(taskTitle: "Accounting", taskDescription: "Delivered company invoices", taskDate: .init(timeIntervalSince1970: 1648569783)),
-        Task(taskTitle: "Programming", taskDescription: "Internal App development", taskDate: .init(timeIntervalSince1970: 1648483383)),
-        Task(taskTitle: "HR", taskDescription: "Hiring", taskDate: .init(timeIntervalSince1970: 1648479783)),
-        Task(taskTitle: "Communication", taskDescription: "Communication with a client", taskDate: .init(timeIntervalSince1970: 1648479783)),
+        Task(taskTitle: "Accounting", taskDescription: "Delivered company invoices", taskDate: .init(timeIntervalSince1970: 1648722445)),
+        Task(taskTitle: "Programming", taskDescription: "Internal App development", taskDate: .init(timeIntervalSince1970: 1648722445)),
+        Task(taskTitle: "HR", taskDescription: "Hiring", taskDate: .init(timeIntervalSince1970: 1648722445)),
+        Task(taskTitle: "Communication", taskDescription: "Communication with a client", taskDate: .init(timeIntervalSince1970: 1648722445)),
     ]
     
 
@@ -34,24 +34,6 @@ class TaskViewModel: ObservableObject{
     init(){
         fetchCurrentWeek()
         filterTodayTasks()
-    }
-    
-    func fetchCurrentWeek(){
-        
-        let today = Date()
-        let calendar = Calendar.current
-        let week = calendar.dateInterval(of: .weekOfMonth, for: today)
-        
-        guard let firstWeekDay = week?.start else{
-            return
-        }
-        
-        (1...7).forEach { day in
-            
-            if let weekday = calendar.date(byAdding: .day, value: day, to: firstWeekDay) {
-                currentWeek.append(weekday)
-            }
-        }
     }
     
     //Filter Today Tasks
@@ -73,6 +55,26 @@ class TaskViewModel: ObservableObject{
             
         }
     }
+    
+    func fetchCurrentWeek(){
+        
+        let today = Date()
+        let calendar = Calendar.current
+        let week = calendar.dateInterval(of: .weekOfMonth, for: today)
+        
+        guard let firstWeekDay = week?.start else{
+            return
+        }
+        
+        (1...7).forEach { day in
+            
+            if let weekday = calendar.date(byAdding: .day, value: day, to: firstWeekDay) {
+                currentWeek.append(weekday)
+            }
+        }
+    }
+    
+    
     
     // Extracting Date
     func extractDate(date: Date,format: String)-> String {
