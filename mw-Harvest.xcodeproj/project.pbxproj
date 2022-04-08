@@ -39,6 +39,10 @@
 		258D6ADD27F4980700E7D7BA /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D6ADC27F4980700E7D7BA /* TaskCardView.swift */; };
 		258D6ADF27F49A1500E7D7BA /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D6ADE27F49A1500E7D7BA /* ExpensesViewController.swift */; };
 		258D6AE227F5F95300E7D7BA /* NewInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D6AE127F5F95300E7D7BA /* NewInvoiceViewController.swift */; };
+		258D6AE427FB149200E7D7BA /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D6AE327FB149200E7D7BA /* Invoice.swift */; };
+		258D6AE927FC4D8400E7D7BA /* InvoiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258D6AE827FC4D8400E7D7BA /* InvoiceTableViewCell.xib */; };
+		258D6AEB27FC512700E7D7BA /* InvoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D6AEA27FC512700E7D7BA /* InvoiceTableViewCell.swift */; };
+		258D6AED27FC99DF00E7D7BA /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D6AEC27FC99DF00E7D7BA /* InvoiceViewController.swift */; };
 		25C1944927DFA34B00977C49 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1944827DFA34B00977C49 /* CalendarViewController.swift */; };
 		25DA18F027F1C9BD006821C3 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DA18EF27F1C9BD006821C3 /* test.swift */; };
 		25DA18F227F1D0FB006821C3 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DA18F127F1D0FB006821C3 /* TaskViewModel.swift */; };
@@ -96,6 +100,10 @@
 		258D6ADC27F4980700E7D7BA /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		258D6ADE27F49A1500E7D7BA /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
 		258D6AE127F5F95300E7D7BA /* NewInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewController.swift; sourceTree = "<group>"; };
+		258D6AE327FB149200E7D7BA /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		258D6AE827FC4D8400E7D7BA /* InvoiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceTableViewCell.xib; sourceTree = "<group>"; };
+		258D6AEA27FC512700E7D7BA /* InvoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTableViewCell.swift; sourceTree = "<group>"; };
+		258D6AEC27FC99DF00E7D7BA /* InvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewController.swift; sourceTree = "<group>"; };
 		25C1944827DFA34B00977C49 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		25DA18EF27F1C9BD006821C3 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		25DA18F127F1D0FB006821C3 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
@@ -184,9 +192,9 @@
 		258BBC2927E22739008B23CE /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				258D6AE527FC4D1700E7D7BA /* Cells */,
 				25E3E2AB27DA655200104852 /* Main.storyboard */,
 				25E3E2B327DA655300104852 /* LaunchScreen.storyboard */,
-				258BBC2327E20C98008B23CE /* MoreCollectionViewCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -201,12 +209,23 @@
 			path = ProfilController;
 			sourceTree = "<group>";
 		};
-		258D6AE027F5F93700E7D7BA /* InvoiceController */ = {
+		258D6AE027F5F93700E7D7BA /* ExpensesController */ = {
 			isa = PBXGroup;
 			children = (
+				258D6ADE27F49A1500E7D7BA /* ExpensesViewController.swift */,
 				258D6AE127F5F95300E7D7BA /* NewInvoiceViewController.swift */,
+				258D6AEC27FC99DF00E7D7BA /* InvoiceViewController.swift */,
 			);
-			path = InvoiceController;
+			path = ExpensesController;
+			sourceTree = "<group>";
+		};
+		258D6AE527FC4D1700E7D7BA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				258BBC2327E20C98008B23CE /* MoreCollectionViewCell.xib */,
+				258D6AE827FC4D8400E7D7BA /* InvoiceTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		25C1944727DFA32D00977C49 /* LoginController */ = {
@@ -284,6 +303,7 @@
 			children = (
 				258BB65427EB7517001288C5 /* UserManager.swift */,
 				250B7E8D27E9F2750096E7A9 /* User.swift */,
+				258D6AE327FB149200E7D7BA /* Invoice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +313,7 @@
 			children = (
 				258BBC2927E22739008B23CE /* Storyboards */,
 				258BBC2527E20CC8008B23CE /* MoreCollectionViewCell.swift */,
+				258D6AEA27FC512700E7D7BA /* InvoiceTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,12 +321,11 @@
 		25E3E2DA27DA65A100104852 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				258D6AE027F5F93700E7D7BA /* InvoiceController */,
+				258D6AE027F5F93700E7D7BA /* ExpensesController */,
 				258BBC2A27E22BA3008B23CE /* ProfilController */,
 				2588B27E27E0BF1D00E29201 /* CalendarController */,
 				25C1944727DFA32D00977C49 /* LoginController */,
 				258BBC2727E20FF1008B23CE /* MoreViewController.swift */,
-				258D6ADE27F49A1500E7D7BA /* ExpensesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -441,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25E3E2B527DA655300104852 /* LaunchScreen.storyboard in Resources */,
+				258D6AE927FC4D8400E7D7BA /* InvoiceTableViewCell.xib in Resources */,
 				2577628327DF5201009BE492 /* Cairo-Bold.ttf in Resources */,
 				25E3E2B227DA655300104852 /* Assets.xcassets in Resources */,
 				2577628227DF5201009BE492 /* Cairo-Regular.ttf in Resources */,
@@ -475,9 +496,11 @@
 				25DA18F227F1D0FB006821C3 /* TaskViewModel.swift in Sources */,
 				2588B28B27E0FF7A00E29201 /* EventEditViewController.swift in Sources */,
 				258BB65527EB7517001288C5 /* UserManager.swift in Sources */,
+				258D6AEB27FC512700E7D7BA /* InvoiceTableViewCell.swift in Sources */,
 				25DA18F527F1D79B006821C3 /* Task.swift in Sources */,
 				250B7EB027EA3DD40096E7A9 /* ApiService.swift in Sources */,
 				2588B28727E0EE1A00E29201 /* CalendarHelper.swift in Sources */,
+				258D6AED27FC99DF00E7D7BA /* InvoiceViewController.swift in Sources */,
 				258D6ADB27F4933E00E7D7BA /* TaskView.swift in Sources */,
 				2577627E27DF4F44009BE492 /* LoginViewController.swift in Sources */,
 				250B7E8E27E9F2750096E7A9 /* User.swift in Sources */,
@@ -488,6 +511,7 @@
 				258BBC2827E20FF1008B23CE /* MoreViewController.swift in Sources */,
 				2588B28427E0EB4B00E29201 /* CalendarCell.swift in Sources */,
 				258D6ADF27F49A1500E7D7BA /* ExpensesViewController.swift in Sources */,
+				258D6AE427FB149200E7D7BA /* Invoice.swift in Sources */,
 				2588B28D27E1025700E29201 /* EventCell.swift in Sources */,
 				25DA18F027F1C9BD006821C3 /* test.swift in Sources */,
 				250B7EB227EA3EB30096E7A9 /* ProfileViewModel.swift in Sources */,

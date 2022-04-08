@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20017"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Bold.ttf">
+            <string>Cairo-Bold</string>
+        </array>
+        <array key="Cairo-Regular.ttf">
+            <string>Cairo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InvoiceTableViewCell" customModule="mw_Harvest" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="206" id="11d-ny-iH3" customClass="InvoiceTableViewCell" customModule="mw_Harvest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="11d-ny-iH3" id="Qgx-Tm-eB6">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vodafone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9q-ru-Nmj">
+                        <rect key="frame" x="12" y="19" width="222" height="37.5"/>
+                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 5000,40" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lH6-Pn-V0N">
+                        <rect key="frame" x="233" y="19" width="169" height="37.5"/>
+                        <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paid on 27/04/2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yel-V7-nq5">
+                        <rect key="frame" x="12" y="60" width="283" height="30"/>
+                        <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="16"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="lH6-Pn-V0N" secondAttribute="trailing" constant="12" id="BYd-2Z-qev"/>
+                    <constraint firstItem="Yel-V7-nq5" firstAttribute="firstBaseline" secondItem="i9q-ru-Nmj" secondAttribute="baseline" constant="20" symbolType="layoutAnchor" id="E7M-RY-3uc"/>
+                    <constraint firstAttribute="trailing" secondItem="Yel-V7-nq5" secondAttribute="trailing" constant="119" id="PJK-lr-TWe"/>
+                    <constraint firstItem="i9q-ru-Nmj" firstAttribute="leading" secondItem="Qgx-Tm-eB6" secondAttribute="leading" constant="12" id="Ua6-UJ-gXw"/>
+                    <constraint firstItem="lH6-Pn-V0N" firstAttribute="leading" secondItem="Qgx-Tm-eB6" secondAttribute="leading" constant="233" id="Vbl-7n-n05"/>
+                    <constraint firstItem="Yel-V7-nq5" firstAttribute="leading" secondItem="i9q-ru-Nmj" secondAttribute="leading" id="Xlz-FN-fsl"/>
+                    <constraint firstItem="i9q-ru-Nmj" firstAttribute="top" secondItem="Qgx-Tm-eB6" secondAttribute="top" constant="19" id="dwH-Nd-LVP"/>
+                    <constraint firstItem="lH6-Pn-V0N" firstAttribute="top" secondItem="Qgx-Tm-eB6" secondAttribute="top" constant="19" id="oJs-st-746"/>
+                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="i9q-ru-Nmj" secondAttribute="trailing" constant="180" id="vHF-fv-szR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="amountLabel" destination="lH6-Pn-V0N" id="KvM-4Q-pmC"/>
+                <outlet property="clientLabel" destination="i9q-ru-Nmj" id="5IP-Pu-8pV"/>
+                <outlet property="paymentDateLabel" destination="Yel-V7-nq5" id="XYq-L6-bG7"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="96.428571428571431"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -8,6 +8,5 @@
 import UIKit
 
 class EventCell: UITableViewCell {
-    
-    @IBOutlet weak var eventLabel: UILabel!
+    @IBOutlet var eventLabel: UILabel!
 }
