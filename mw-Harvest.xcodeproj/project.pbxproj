@@ -20,7 +20,8 @@
 		250B7EAE27EA2E720096E7A9 /* KVKCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 250B7EAD27EA2E720096E7A9 /* KVKCalendar */; };
 		250B7EB027EA3DD40096E7A9 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B7EAF27EA3DD40096E7A9 /* ApiService.swift */; };
 		250B7EB227EA3EB30096E7A9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B7EB127EA3EB30096E7A9 /* ProfileViewModel.swift */; };
-		2577627E27DF4F44009BE492 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577627D27DF4F44009BE492 /* LoginViewController.swift */; };
+		2514F38A28057B2C004BEB46 /* PDF-Generator in Frameworks */ = {isa = PBXBuildFile; productRef = 2514F38928057B2C004BEB46 /* PDF-Generator */; };
+		2514F38E2805C332004BEB46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514F38D2805C332004BEB46 /* LoginViewController.swift */; };
 		2577628227DF5201009BE492 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2577628027DF5201009BE492 /* Cairo-Regular.ttf */; };
 		2577628327DF5201009BE492 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2577628127DF5201009BE492 /* Cairo-Bold.ttf */; };
 		2588B27A27E099D300E29201 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2588B27927E099D300E29201 /* Constants.swift */; };
@@ -81,7 +82,7 @@
 		250B7E8D27E9F2750096E7A9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		250B7EAF27EA3DD40096E7A9 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		250B7EB127EA3EB30096E7A9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		2577627D27DF4F44009BE492 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2514F38D2805C332004BEB46 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2577628027DF5201009BE492 /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
 		2577628127DF5201009BE492 /* Cairo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Bold.ttf"; sourceTree = "<group>"; };
 		2588B27927E099D300E29201 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 				250829A527F1B9C4006CD4FD /* Harvester in Frameworks */,
 				250B7EA327EA2CE90096E7A9 /* FirebaseAnalytics in Frameworks */,
 				250B7EAB27EA2CE90096E7A9 /* FirebaseFirestore in Frameworks */,
+				2514F38A28057B2C004BEB46 /* PDF-Generator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +160,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2514F38C2805C2F1004BEB46 /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
+				2514F38D2805C332004BEB46 /* LoginViewController.swift */,
+			);
+			path = LoginController;
+			sourceTree = "<group>";
+		};
 		2577627F27DF5201009BE492 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,14 +238,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		25C1944727DFA32D00977C49 /* LoginController */ = {
-			isa = PBXGroup;
-			children = (
-				2577627D27DF4F44009BE492 /* LoginViewController.swift */,
-			);
-			path = LoginController;
-			sourceTree = "<group>";
-		};
 		25E3E29927DA655100104852 = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +265,7 @@
 				2588B27827E099A600E29201 /* Utils */,
 				25E3E2D827DA659100104852 /* Model */,
 				25E3E2DA27DA65A100104852 /* Controller */,
+				258BBC2727E20FF1008B23CE /* MoreViewController.swift */,
 				25E3E2D927DA659A00104852 /* View */,
 				25E3E2A527DA655200104852 /* AppDelegate.swift */,
 				25E3E2A727DA655200104852 /* SceneDelegate.swift */,
@@ -324,8 +327,7 @@
 				258D6AE027F5F93700E7D7BA /* ExpensesController */,
 				258BBC2A27E22BA3008B23CE /* ProfilController */,
 				2588B27E27E0BF1D00E29201 /* CalendarController */,
-				25C1944727DFA32D00977C49 /* LoginController */,
-				258BBC2727E20FF1008B23CE /* MoreViewController.swift */,
+				2514F38C2805C2F1004BEB46 /* LoginController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -363,6 +365,7 @@
 				250B7EAA27EA2CE90096E7A9 /* FirebaseFirestore */,
 				250B7EAD27EA2E720096E7A9 /* KVKCalendar */,
 				250829A427F1B9C4006CD4FD /* Harvester */,
+				2514F38928057B2C004BEB46 /* PDF-Generator */,
 			);
 			productName = "mw-Harvest";
 			productReference = 25E3E2A227DA655100104852 /* mw-Harvest.app */;
@@ -443,6 +446,7 @@
 				250B7EA127EA2CE90096E7A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				250B7EAC27EA2E720096E7A9 /* XCRemoteSwiftPackageReference "KVKCalendar" */,
 				250829A327F1B9C3006CD4FD /* XCRemoteSwiftPackageReference "Harvester" */,
+				2514F38828057B2B004BEB46 /* XCRemoteSwiftPackageReference "Swift-PDF-Generator" */,
 			);
 			productRefGroup = 25E3E2A327DA655100104852 /* Products */;
 			projectDirPath = "";
@@ -502,7 +506,6 @@
 				2588B28727E0EE1A00E29201 /* CalendarHelper.swift in Sources */,
 				258D6AED27FC99DF00E7D7BA /* InvoiceViewController.swift in Sources */,
 				258D6ADB27F4933E00E7D7BA /* TaskView.swift in Sources */,
-				2577627E27DF4F44009BE492 /* LoginViewController.swift in Sources */,
 				250B7E8E27E9F2750096E7A9 /* User.swift in Sources */,
 				2588B28F27E103E500E29201 /* Event.swift in Sources */,
 				258BBC2627E20CC8008B23CE /* MoreCollectionViewCell.swift in Sources */,
@@ -511,6 +514,7 @@
 				258BBC2827E20FF1008B23CE /* MoreViewController.swift in Sources */,
 				2588B28427E0EB4B00E29201 /* CalendarCell.swift in Sources */,
 				258D6ADF27F49A1500E7D7BA /* ExpensesViewController.swift in Sources */,
+				2514F38E2805C332004BEB46 /* LoginViewController.swift in Sources */,
 				258D6AE427FB149200E7D7BA /* Invoice.swift in Sources */,
 				2588B28D27E1025700E29201 /* EventCell.swift in Sources */,
 				25DA18F027F1C9BD006821C3 /* test.swift in Sources */,
@@ -899,6 +903,14 @@
 				minimumVersion = 0.5.9;
 			};
 		};
+		2514F38828057B2B004BEB46 /* XCRemoteSwiftPackageReference "Swift-PDF-Generator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wearesurge/Swift-PDF-Generator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -946,6 +958,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 250B7EAC27EA2E720096E7A9 /* XCRemoteSwiftPackageReference "KVKCalendar" */;
 			productName = KVKCalendar;
+		};
+		2514F38928057B2C004BEB46 /* PDF-Generator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2514F38828057B2B004BEB46 /* XCRemoteSwiftPackageReference "Swift-PDF-Generator" */;
+			productName = "PDF-Generator";
 		};
 /* End XCSwiftPackageProductDependency section */
 

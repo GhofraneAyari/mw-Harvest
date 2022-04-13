@@ -5,6 +5,8 @@
 //  Created by Ghofrane Ayari on 14/03/2022.
 //
 
+import Firebase
+import FirebaseDatabase
 import Foundation
 import LocalAuthentication
 import MSAL
@@ -15,6 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var microsoftLoginButton: UIButton!
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    
 
     // Update the below to your client ID you received in the portal. The below is for running the demo only
     let kClientID = Constants.LogInMicrosoft.clientID
@@ -84,8 +87,12 @@ class LoginViewController: UIViewController {
         requestAccessToken(completion: { [weak self] in
             guard let self = self else { return }
 
-            self.getUserData(completion: { [weak self] in
-                guard let self = self else { return }
+            self.getUserData(completion: {
+                UserManager.SaveUser().checkUserExists()
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "Login", sender: nil)
+                }
+                
             }
             )
 
@@ -123,16 +130,17 @@ class LoginViewController: UIViewController {
 
                     //                    let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
                     //                    let saveTokenID: Bool = KeychainWrapper.standard.set(tokenId != nil, forKey: "tokenId")
-
+//acceessToken = ""
+//accessToken = nil
                     if (accessToken?.isEmpty) != nil {
                         print("you are logged in")
 
                         let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
                         let saveTokenID: Bool = KeychainWrapper.standard.set(tokenId != nil, forKey: "tokenId")
+                        
+                        
 
-                        DispatchQueue.main.async {
-                            self.performSegue(withIdentifier: "Login", sender: nil)
-                        }
+                       
                     } else {
                         print("could not perform request")
                         DispatchQueue.main.async {

@@ -16,12 +16,10 @@ class NewInvoiceViewController: UIViewController {
     @IBOutlet var dueDatePicker: UIDatePicker!
     @IBOutlet var issueDatePicker: UIDatePicker!
     @IBOutlet var amountTextField: UITextField!
-    
-    
 
     @IBAction func confirmButtonPressed(_ sender: Any) {
-        
-        let isOpen : Bool = true
+        print("confirm button pressed")
+        let isOpen: Bool? = true
         // from date to string
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
@@ -29,15 +27,10 @@ class NewInvoiceViewController: UIViewController {
         let creator = fromTextField.text
         let client = forTextField.text
         let amount = Double(amountTextField.text!)
-
-        guard let amount = amount else {
-            return
-        }
-
         let issueDate = dateFormatter.string(from: issueDatePicker.date)
         let dueDate = dateFormatter.string(from: dueDatePicker.date)
 
-        if (creator?.isEmpty)! || (client?.isEmpty)! || (amountTextField.text!.isEmpty) {
+        if (creator?.isEmpty)! && (client?.isEmpty)! && (amountTextField.text!.isEmpty) && (issueDatePicker.date > dueDatePicker.date) {
             print("Some of the fields are empty")
             DispatchQueue.main.async {
                 print("incorrect - try again")
@@ -49,25 +42,32 @@ class NewInvoiceViewController: UIViewController {
             }
         }
 
-        dismiss(animated: true, completion: nil)
+        if !CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: amountTextField.text!)) {
+            print("Amount is not a number")
+            DispatchQueue.main.async {
+                print("incorrect - try again")
+                let alert = UIAlertController(title: "Try Again", message: "Amount should be a valid number", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
 
-        guard let creator = creator else {
+                return
+            }
+        }
+
+        guard let creator = creator, let amount = amount, let client = client else {
             return
         }
 
-        guard let client = client else {
-            return
-        }
-        
-
-        addInfo(creator: creator, client: client, issueDate: issueDate, dueDate: dueDate, amount: amount, isOpen: isOpen)
+        addInfo(creator: creator, client: client, issueDate: issueDate, dueDate: dueDate, amount: amount, isOpen: isOpen ?? true)
     }
 
-    func addInfo(creator: String, client: String, issueDate: String, dueDate: String, amount: Double, isOpen : Bool) {
+    func addInfo(creator: String, client: String, issueDate: String, dueDate: String, amount: Double, isOpen: Bool) {
         let db = Firestore.firestore()
         db.collection("invoice")
             .document()
-            .setData(["creator": creator, "client": client, "currency": "EUR", "amount": amount, "issueDate": issueDate, "dueDate": dueDate, "isOpen" : true])
+            .setData(["creator": creator, "client": client, "currency": "EUR", "amount": amount, "issueDate": issueDate, "dueDate": dueDate, "isOpen": true])
+        
+
+        dismiss(animated: true, completion: nil)
     }
 }
-

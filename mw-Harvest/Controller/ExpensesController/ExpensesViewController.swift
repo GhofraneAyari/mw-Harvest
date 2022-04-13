@@ -11,13 +11,18 @@ import Foundation
 import UIKit
 
 class ExpensesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet var segmentedControl: UISegmentedControl!
+
+    var invoice: Invoice?
     var invoiceVC: InvoiceViewController!
     @Published var invoices = [Invoice]()
-    @IBOutlet var segmentedControl: UISegmentedControl!
+
     @IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.setEmptyMessage("No invoices at the moment.")
 
         let cellNib = UINib(nibName: "InvoiceTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "invoiceCell")
@@ -42,17 +47,6 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
 
         getInvoiceData()
-//        self.tableView.reloadData()
-
-//        if InvoiceViewController().deleteButtonPressed == true {
-//            self.tableView.reloadData()
-//        }
-    }
-
-    @IBAction func segmentedChange(_ sender: Any) {
-        if (sender as AnyObject).selectedSegmentIndex == 0 {
-        } else if (sender as AnyObject).selectedSegmentIndex == 1 {
-        }
     }
 
     func getInvoiceData() {
@@ -72,7 +66,11 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
                 let creator = i.document.get("creator") as! String
                 let dueDate = i.document.get("dueDate") as! String
                 let issueDate = i.document.get("issueDate") as! String
-                let isOpen = i.document.get("isOpen") as! Bool
+
+                // TODO: fix this
+                guard let isOpen = i.document.get("isOpen") as? Bool else {
+                    return
+                }
 
                 if i.type == .added {
                     print("Added")
@@ -84,14 +82,15 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
                     print("Removed")
                 }
 
-                self.tableView.reloadData()
+                
 
                 self.invoices.append(Invoice(id: id, amount: amount, client: client, creator: creator, dueDate: dueDate, issueDate: issueDate, isOpen: isOpen))
-                if let row = self.invoices.count as? Any {
-                    let indexPath = IndexPath(row: row as! Int - 1, section: 0)
-                    self.tableView.insertRows(at: [indexPath], with: .automatic)
-                }
+//                if let row = self.invoices.count as? Any {
+////                    let indexPath = IndexPath(row: row as! Int - 1, section: 0)
+////                    self.tableView.insertRows(at: [indexPath], with: .automatic)
+//                }
             }
+            self.tableView.reloadData()
         }
     }
 
@@ -100,18 +99,41 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if invoices.count == 0 {
-            self.tableView.setEmptyMessage("No invoices at the moment.")
-        } else {
-            self.tableView.restore()
+        let openInvoice = invoices.filter { $0.isOpen == true }
+        let closedInvoice = invoices.filter { $0.isOpen == false }
+        tableView.backgroundView?.isHidden = !invoices.isEmpty
+        if invoices.isEmpty == false {
             
+            
+         
+            switch segmentedControl.selectedSegmentIndex {
+            case 0 :
+                return openInvoice.count
+            case 1:
+                return closedInvoice.count
+            default:
+                break
+            }
+//            self.tableView.restore()
         }
-        return invoices.count
+//        return invoices.count
+        return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "invoiceCell", for: indexPath) as! InvoiceTableViewCell
-        cell.set(invoice: invoices[indexPath.row])
+        let openInvoice = invoices.filter { $0.isOpen == true }
+        let closedInvoice = invoices.filter { $0.isOpen == false }
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            
+            cell.set(invoice: openInvoice[indexPath.row])
+
+        case 1:
+            cell.set(invoice: closedInvoice[indexPath.row])
+        default:
+            break
+        }
         return cell
     }
 
@@ -128,26 +150,28 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
             invoiceVC.invoice = invoice
         }
     }
+
+    @IBAction func segmentedChange(_ sender: Any) {
+        tableView.reloadData()
+    }
 }
 
+extension UITableView {
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = .black
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont(name: "Cairo", size: 22)
+        messageLabel.sizeToFit()
 
-    extension UITableView {
-
-        func setEmptyMessage(_ message: String) {
-            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
-            messageLabel.text = message
-            messageLabel.textColor = .black
-            messageLabel.numberOfLines = 0
-            messageLabel.textAlignment = .center
-            messageLabel.font = UIFont(name: "Cairo", size: 22)
-            messageLabel.sizeToFit()
-
-            self.backgroundView = messageLabel
-            self.separatorStyle = .none
-        }
-
-        func restore() {
-            self.backgroundView = nil
-            self.separatorStyle = .singleLine
-        }
+        backgroundView = messageLabel
+        separatorStyle = .none
     }
+
+    func restore() {
+        backgroundView = nil
+        separatorStyle = .singleLine
+    }
+}

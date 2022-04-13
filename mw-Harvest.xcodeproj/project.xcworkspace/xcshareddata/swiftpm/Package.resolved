@@ -127,6 +127,15 @@
       }
     },
     {
+      "identity" : "swift-pdf-generator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wearesurge/Swift-PDF-Generator.git",
+      "state" : {
+        "revision" : "79ff4769f4387fc93078c304d5c11a3e1229fb85",
+        "version" : "0.1.2"
+      }
+    },
+    {
       "identity" : "swift-protobuf",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",

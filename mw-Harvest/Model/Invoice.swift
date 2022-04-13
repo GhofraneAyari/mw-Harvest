@@ -14,9 +14,9 @@ class Invoice {
     var creator: String
     var dueDate: String
     var issueDate: String
-    var isOpen : Bool
+    var isOpen: Bool
 
-    init(id: String, amount: Double, client: String, creator: String, dueDate: String, issueDate: String, isOpen : Bool) {
+    init(id: String, amount: Double, client: String, creator: String, dueDate: String, issueDate: String, isOpen: Bool) {
         self.id = id
         self.amount = amount
         self.client = client

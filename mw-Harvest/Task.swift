@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-//Task Model
+// Task Model
 
-struct Task: Identifiable{
+struct Task: Identifiable {
     var id = UUID().uuidString
     var taskTitle: String
     var taskDescription: String
-    var taskDate : Date
+    var taskDate: Date
 }
