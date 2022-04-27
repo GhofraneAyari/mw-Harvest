@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
     @IBOutlet var microsoftLoginButton: UIButton!
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    
 
     // Update the below to your client ID you received in the portal. The below is for running the demo only
     let kClientID = Constants.LogInMicrosoft.clientID
@@ -88,11 +87,10 @@ class LoginViewController: UIViewController {
             guard let self = self else { return }
 
             self.getUserData(completion: {
-                UserManager.SaveUser().checkUserExists()
+                self.checkUserExists()
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "Login", sender: nil)
                 }
-                
             }
             )
 
@@ -130,17 +128,14 @@ class LoginViewController: UIViewController {
 
                     //                    let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
                     //                    let saveTokenID: Bool = KeychainWrapper.standard.set(tokenId != nil, forKey: "tokenId")
-//acceessToken = ""
-//accessToken = nil
+                    // acceessToken = ""
+                    // accessToken = nil
                     if (accessToken?.isEmpty) != nil {
                         print("you are logged in")
 
                         let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
                         let saveTokenID: Bool = KeychainWrapper.standard.set(tokenId != nil, forKey: "tokenId")
-                        
-                        
 
-                       
                     } else {
                         print("could not perform request")
                         DispatchQueue.main.async {
@@ -415,19 +410,22 @@ class LoginViewController: UIViewController {
         let localAuthenticationContext = LAContext()
         var authorizationError: NSError?
         let reason = "Authentication required to login"
+        let acceessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
 
         if
             localAuthenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authorizationError) {
-            localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+            localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [self]
                 success, evaluateError in
-                if success {
-                    print("You are now logged in")
+                if success && acceessToken != nil {
+                    
+                    
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "Login", sender: nil)
+                        }
+                        print("You are now logged in")
+                    
 
                     //                    if successful, make segue to tabview
-
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "Login", sender: nil)
-                    }
 
                 } else {
                     guard let error = evaluateError else {
@@ -441,6 +439,27 @@ class LoginViewController: UIViewController {
                 return
             }
             print(error)
+        }
+    }
+
+    func checkUserExists() {
+        guard let userId = UserManager.shared.userId, userId.isEmpty == false else {
+            return
+        }
+
+        let db = Firestore.firestore()
+        let docRef = db.collection("user").document(userId)
+        docRef.getDocument { document, _ in
+            if document!.exists {
+                print("document exists")
+
+            } else {
+                print("document doesnt exist")
+
+                db.collection("user")
+                    .document(userId)
+                    .setData(["id": userId, "email": UserManager.shared.user?.mail as Any, "first_name": UserManager.shared.user?.givenName as Any, "last_name": UserManager.shared.user?.surname as Any, "role": UserManager.shared.user?.jobTitle as Any, "telephone": UserManager.shared.user?.mobilePhone as Any])
+            }
         }
     }
 }

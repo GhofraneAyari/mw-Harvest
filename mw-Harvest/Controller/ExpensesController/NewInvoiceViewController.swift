@@ -16,13 +16,27 @@ class NewInvoiceViewController: UIViewController {
     @IBOutlet var dueDatePicker: UIDatePicker!
     @IBOutlet var issueDatePicker: UIDatePicker!
     @IBOutlet var amountTextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
 
     @IBAction func confirmButtonPressed(_ sender: Any) {
         print("confirm button pressed")
         let isOpen: Bool? = true
         // from date to string
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yy"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
 
         let creator = fromTextField.text
         let client = forTextField.text
@@ -66,6 +80,7 @@ class NewInvoiceViewController: UIViewController {
         db.collection("invoice")
             .document()
             .setData(["creator": creator, "client": client, "currency": "EUR", "amount": amount, "issueDate": issueDate, "dueDate": dueDate, "isOpen": true])
+       
         
 
         dismiss(animated: true, completion: nil)

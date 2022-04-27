@@ -5,6 +5,8 @@
 //  Created by Ghofrane Ayari on 16/03/2022.
 //
 
+import Firebase
+import FirebaseDatabase
 import Foundation
 import SwiftKeychainWrapper
 import UIKit
@@ -16,6 +18,10 @@ class ProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
 
         let user = UserManager.shared.user
         fullNameLabel.text = user?.displayName
@@ -48,6 +54,8 @@ class ProfileViewController: UITableViewController {
         lblNameInitialize.layer.render(in: UIGraphicsGetCurrentContext()!)
         profilImage.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
+        
     }
 
     @IBAction func sginOutButton(_ sender: Any) {
@@ -68,4 +76,11 @@ class ProfileViewController: UITableViewController {
 
         present(alert, animated: true, completion: nil)
     }
+
+//    func weeklyHours() {
+////        let timeByUser = events.filter { $0.userId == UserManager.shared.userId }
+//
+//        print(events)
+//
+//    }
 }

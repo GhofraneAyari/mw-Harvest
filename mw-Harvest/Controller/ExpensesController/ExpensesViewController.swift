@@ -91,6 +91,7 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
 //                }
             }
             self.tableView.reloadData()
+            
         }
     }
 
@@ -158,9 +159,10 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
 
 extension UITableView {
     func setEmptyMessage(_ message: String) {
+        let aColor = UIColor(named: "color1")
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height))
         messageLabel.text = message
-        messageLabel.textColor = .black
+        messageLabel.textColor = aColor
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         messageLabel.font = UIFont(name: "Cairo", size: 22)

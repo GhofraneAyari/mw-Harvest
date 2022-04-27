@@ -29,7 +29,6 @@
 		2588B28727E0EE1A00E29201 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2588B28627E0EE1A00E29201 /* CalendarHelper.swift */; };
 		2588B28927E0F6FF00E29201 /* WeeklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2588B28827E0F6FF00E29201 /* WeeklyViewController.swift */; };
 		2588B28B27E0FF7A00E29201 /* EventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2588B28A27E0FF7A00E29201 /* EventEditViewController.swift */; };
-		2588B28D27E1025700E29201 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2588B28C27E1025700E29201 /* EventCell.swift */; };
 		2588B28F27E103E500E29201 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2588B28E27E103E500E29201 /* Event.swift */; };
 		258BB65527EB7517001288C5 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BB65427EB7517001288C5 /* UserManager.swift */; };
 		258BBC2427E20C98008B23CE /* MoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258BBC2327E20C98008B23CE /* MoreCollectionViewCell.xib */; };
@@ -44,7 +43,14 @@
 		258D6AE927FC4D8400E7D7BA /* InvoiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258D6AE827FC4D8400E7D7BA /* InvoiceTableViewCell.xib */; };
 		258D6AEB27FC512700E7D7BA /* InvoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D6AEA27FC512700E7D7BA /* InvoiceTableViewCell.swift */; };
 		258D6AED27FC99DF00E7D7BA /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D6AEC27FC99DF00E7D7BA /* InvoiceViewController.swift */; };
+		25A0B49728197C6C001E45BD /* ClientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A0B49628197C6C001E45BD /* ClientTableViewCell.xib */; };
+		25A0B49928197D7E001E45BD /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A0B49828197D7E001E45BD /* ClientTableViewCell.swift */; };
 		25C1944927DFA34B00977C49 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1944827DFA34B00977C49 /* CalendarViewController.swift */; };
+		25D758C5280EAFE200BE4C48 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25D758C4280EAFE200BE4C48 /* EventTableViewCell.xib */; };
+		25D758C7280EB1A400BE4C48 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D758C6280EB1A400BE4C48 /* EventTableViewCell.swift */; };
+		25D758CA281841E300BE4C48 /* ContactAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D758C9281841E300BE4C48 /* ContactAdminViewController.swift */; };
+		25D758CD281941C600BE4C48 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D758CC281941C600BE4C48 /* ClientViewController.swift */; };
+		25D758CF28195C7800BE4C48 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D758CE28195C7800BE4C48 /* Client.swift */; };
 		25DA18F027F1C9BD006821C3 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DA18EF27F1C9BD006821C3 /* test.swift */; };
 		25DA18F227F1D0FB006821C3 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DA18F127F1D0FB006821C3 /* TaskViewModel.swift */; };
 		25DA18F527F1D79B006821C3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DA18F427F1D79B006821C3 /* Task.swift */; };
@@ -90,7 +96,6 @@
 		2588B28627E0EE1A00E29201 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		2588B28827E0F6FF00E29201 /* WeeklyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyViewController.swift; sourceTree = "<group>"; };
 		2588B28A27E0FF7A00E29201 /* EventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewController.swift; sourceTree = "<group>"; };
-		2588B28C27E1025700E29201 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		2588B28E27E103E500E29201 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		258BB65427EB7517001288C5 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		258BBC2327E20C98008B23CE /* MoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -105,7 +110,14 @@
 		258D6AE827FC4D8400E7D7BA /* InvoiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceTableViewCell.xib; sourceTree = "<group>"; };
 		258D6AEA27FC512700E7D7BA /* InvoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTableViewCell.swift; sourceTree = "<group>"; };
 		258D6AEC27FC99DF00E7D7BA /* InvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewController.swift; sourceTree = "<group>"; };
+		25A0B49628197C6C001E45BD /* ClientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientTableViewCell.xib; sourceTree = "<group>"; };
+		25A0B49828197D7E001E45BD /* ClientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 		25C1944827DFA34B00977C49 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		25D758C4280EAFE200BE4C48 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
+		25D758C6280EB1A400BE4C48 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		25D758C9281841E300BE4C48 /* ContactAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAdminViewController.swift; sourceTree = "<group>"; };
+		25D758CC281941C600BE4C48 /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
+		25D758CE28195C7800BE4C48 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		25DA18EF27F1C9BD006821C3 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		25DA18F127F1D0FB006821C3 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		25DA18F427F1D79B006821C3 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -193,8 +205,6 @@
 				2588B28627E0EE1A00E29201 /* CalendarHelper.swift */,
 				2588B28827E0F6FF00E29201 /* WeeklyViewController.swift */,
 				2588B28A27E0FF7A00E29201 /* EventEditViewController.swift */,
-				2588B28C27E1025700E29201 /* EventCell.swift */,
-				2588B28E27E103E500E29201 /* Event.swift */,
 			);
 			path = CalendarController;
 			sourceTree = "<group>";
@@ -202,9 +212,9 @@
 		258BBC2927E22739008B23CE /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				258D6AE527FC4D1700E7D7BA /* Cells */,
 				25E3E2AB27DA655200104852 /* Main.storyboard */,
 				25E3E2B327DA655300104852 /* LaunchScreen.storyboard */,
+				258D6AE527FC4D1700E7D7BA /* Cells */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -232,10 +242,40 @@
 		258D6AE527FC4D1700E7D7BA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				25D758C6280EB1A400BE4C48 /* EventTableViewCell.swift */,
+				258BBC2527E20CC8008B23CE /* MoreCollectionViewCell.swift */,
+				258D6AEA27FC512700E7D7BA /* InvoiceTableViewCell.swift */,
+				25A0B49828197D7E001E45BD /* ClientTableViewCell.swift */,
 				258BBC2327E20C98008B23CE /* MoreCollectionViewCell.xib */,
 				258D6AE827FC4D8400E7D7BA /* InvoiceTableViewCell.xib */,
+				25D758C4280EAFE200BE4C48 /* EventTableViewCell.xib */,
+				25A0B49628197C6C001E45BD /* ClientTableViewCell.xib */,
+				25D758D428195F4100BE4C48 /* XiB */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		25D758C8281841CB00BE4C48 /* ContactController */ = {
+			isa = PBXGroup;
+			children = (
+				25D758C9281841E300BE4C48 /* ContactAdminViewController.swift */,
+			);
+			path = ContactController;
+			sourceTree = "<group>";
+		};
+		25D758CB281941A200BE4C48 /* ClientController */ = {
+			isa = PBXGroup;
+			children = (
+				25D758CC281941C600BE4C48 /* ClientViewController.swift */,
+			);
+			path = ClientController;
+			sourceTree = "<group>";
+		};
+		25D758D428195F4100BE4C48 /* XiB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = XiB;
 			sourceTree = "<group>";
 		};
 		25E3E29927DA655100104852 = {
@@ -307,6 +347,8 @@
 				258BB65427EB7517001288C5 /* UserManager.swift */,
 				250B7E8D27E9F2750096E7A9 /* User.swift */,
 				258D6AE327FB149200E7D7BA /* Invoice.swift */,
+				2588B28E27E103E500E29201 /* Event.swift */,
+				25D758CE28195C7800BE4C48 /* Client.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,8 +357,6 @@
 			isa = PBXGroup;
 			children = (
 				258BBC2927E22739008B23CE /* Storyboards */,
-				258BBC2527E20CC8008B23CE /* MoreCollectionViewCell.swift */,
-				258D6AEA27FC512700E7D7BA /* InvoiceTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,6 +364,8 @@
 		25E3E2DA27DA65A100104852 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				25D758CB281941A200BE4C48 /* ClientController */,
+				25D758C8281841CB00BE4C48 /* ContactController */,
 				258D6AE027F5F93700E7D7BA /* ExpensesController */,
 				258BBC2A27E22BA3008B23CE /* ProfilController */,
 				2588B27E27E0BF1D00E29201 /* CalendarController */,
@@ -466,10 +508,12 @@
 			files = (
 				25E3E2B527DA655300104852 /* LaunchScreen.storyboard in Resources */,
 				258D6AE927FC4D8400E7D7BA /* InvoiceTableViewCell.xib in Resources */,
+				25A0B49728197C6C001E45BD /* ClientTableViewCell.xib in Resources */,
 				2577628327DF5201009BE492 /* Cairo-Bold.ttf in Resources */,
 				25E3E2B227DA655300104852 /* Assets.xcassets in Resources */,
 				2577628227DF5201009BE492 /* Cairo-Regular.ttf in Resources */,
 				25E3E2AD27DA655200104852 /* Main.storyboard in Resources */,
+				25D758C5280EAFE200BE4C48 /* EventTableViewCell.xib in Resources */,
 				258BBC2427E20C98008B23CE /* MoreCollectionViewCell.xib in Resources */,
 				250B7E8B27E9E8240096E7A9 /* GoogleService-Info.plist in Resources */,
 			);
@@ -496,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D758CA281841E300BE4C48 /* ContactAdminViewController.swift in Sources */,
 				25C1944927DFA34B00977C49 /* CalendarViewController.swift in Sources */,
 				25DA18F227F1D0FB006821C3 /* TaskViewModel.swift in Sources */,
 				2588B28B27E0FF7A00E29201 /* EventEditViewController.swift in Sources */,
@@ -505,6 +550,7 @@
 				250B7EB027EA3DD40096E7A9 /* ApiService.swift in Sources */,
 				2588B28727E0EE1A00E29201 /* CalendarHelper.swift in Sources */,
 				258D6AED27FC99DF00E7D7BA /* InvoiceViewController.swift in Sources */,
+				25A0B49928197D7E001E45BD /* ClientTableViewCell.swift in Sources */,
 				258D6ADB27F4933E00E7D7BA /* TaskView.swift in Sources */,
 				250B7E8E27E9F2750096E7A9 /* User.swift in Sources */,
 				2588B28F27E103E500E29201 /* Event.swift in Sources */,
@@ -514,12 +560,14 @@
 				258BBC2827E20FF1008B23CE /* MoreViewController.swift in Sources */,
 				2588B28427E0EB4B00E29201 /* CalendarCell.swift in Sources */,
 				258D6ADF27F49A1500E7D7BA /* ExpensesViewController.swift in Sources */,
+				25D758CD281941C600BE4C48 /* ClientViewController.swift in Sources */,
 				2514F38E2805C332004BEB46 /* LoginViewController.swift in Sources */,
 				258D6AE427FB149200E7D7BA /* Invoice.swift in Sources */,
-				2588B28D27E1025700E29201 /* EventCell.swift in Sources */,
+				25D758C7280EB1A400BE4C48 /* EventTableViewCell.swift in Sources */,
 				25DA18F027F1C9BD006821C3 /* test.swift in Sources */,
 				250B7EB227EA3EB30096E7A9 /* ProfileViewModel.swift in Sources */,
 				25E3E2A827DA655200104852 /* SceneDelegate.swift in Sources */,
+				25D758CF28195C7800BE4C48 /* Client.swift in Sources */,
 				2588B28927E0F6FF00E29201 /* WeeklyViewController.swift in Sources */,
 				25F50E3627F3496000A01228 /* testView.swift in Sources */,
 				258BBC2F27E22BD8008B23CE /* ProfileViewController.swift in Sources */,
@@ -702,6 +750,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 85TJ6UUY75;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mw-Harvest/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -729,6 +778,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 85TJ6UUY75;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mw-Harvest/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -19,6 +19,7 @@ class InvoiceViewController: UITableViewController {
     var expensesVC: ExpensesViewController!
     var invoice: Invoice?
 
+    @IBOutlet var toggleSwitch: UISwitch!
     @IBOutlet var creatorLabel: UILabel!
     @IBOutlet var clientLabel: UILabel!
     @IBOutlet var issueDateLabel: UILabel!
@@ -36,7 +37,18 @@ class InvoiceViewController: UITableViewController {
             clientLabel.text = invoice.client
             amountLabel.text = "\("€") \(invoice.amount)"
             dueDateLabel.text = "\("Due on") \(invoice.dueDate)"
+
+            if invoice.isOpen == true {
+                toggleSwitch.isOn = false
+            }
+//            else {
+//                toggleSwitch.isOn = true
+//            }
         }
+
+//        if invoice?.isOpen == false {
+//            toggleSwitch.setOn(true, animated: true)
+//        }
     }
 
     @IBAction func deleteInvoiceButton(_ sender: Any) {
@@ -64,11 +76,32 @@ class InvoiceViewController: UITableViewController {
     func deleteRow(with id: String) {
         let db = Firestore.firestore()
 
-        db.collection("invoice").document(id).delete { [self] err in
+        db.collection("invoice").document(id).delete { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
                 print("Document successfully removed!")
+            }
+        }
+    }
+
+    @IBAction func toggleBuutton(_ sender: UISwitch) {
+        let db = Firestore.firestore()
+        let invoiceRef = db.collection("invoice").document(invoice!.id)
+
+        if sender.isOn {
+            invoiceRef.updateData(["isOpen": false]) { [self] error in
+                if error == nil {
+                    print("updated")
+
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "deleteInvoice", sender: nil)
+                        tableView.reloadData()
+                    }
+
+                } else {
+                    print("not updated: \(String(describing: error))")
+                }
             }
         }
     }
@@ -129,8 +162,8 @@ class InvoiceViewController: UITableViewController {
                 PDFTableItem(body: invoice!.dueDate),
                 PDFTableItem(body: invoice!.dueDate),
                 PDFTableItem(body: "\("€") \(invoice!.amount)"),
-            ],[],
-            
+            ], [],
+
             [
 //                PDFTableItem(body: ""),
 //                PDFTableItem(body: ""),
@@ -139,7 +172,7 @@ class InvoiceViewController: UITableViewController {
 //                PDFTableItem(body: ""),
                 PDFTableItem(header: "Subtotal"),
             ],
-            
+
             [
 //                PDFTableItem(body: ""),
 //                PDFTableItem(body: ""),
@@ -147,8 +180,8 @@ class InvoiceViewController: UITableViewController {
 //                PDFTableItem(body: ""),
 //                PDFTableItem(body: ""),
                 PDFTableItem(body: "\("€") \(invoice!.amount)"),
-            ],[],
-            
+            ], [],
+
             [
 //                PDFTableItem(body: ""),
 //                PDFTableItem(body: ""),
@@ -164,7 +197,7 @@ class InvoiceViewController: UITableViewController {
 //                PDFTableItem(body: ""),
 //                PDFTableItem(body: ""),
                 PDFTableItem(body: "18%"),
-            ],[],
+            ], [],
             [
 //                PDFTableItem(body: ""),
 //                PDFTableItem(body: ""),
@@ -180,17 +213,15 @@ class InvoiceViewController: UITableViewController {
 //                PDFTableItem(body: ""),
 //                PDFTableItem(body: ""),
                 PDFTableItem(header: "\("€") \(totalAmount)"),
-            ]
+            ],
         ])
         pdfObjects.append(invoiceTable)
     }
-    
+
     func pdfFooter() {
         let footerLabel = PDFLabel(text: "Date and client's signature", rect: CGRect(x: 440, y: 350, width: 400, height: 100), attributes: PDFConstants.cellHeaderAttributes)
         pdfObjects.append(footerLabel)
     }
-    
-    
 }
 
 extension InvoiceViewController: UIDocumentInteractionControllerDelegate {

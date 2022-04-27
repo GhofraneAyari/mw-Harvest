@@ -11,19 +11,19 @@ import UIKit
 class MoreViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
 
-    final var homeActionLabels = ["Create a new invoice",
-                                  "Edit information",
+    final var moreActionLabels = ["Submit timesheet",
+                                  "Request holiday",
                                   "Manage clients",
-                                  "View saved items",
-                                  "View previous invoices",
-                                  "Settings"]
+                                  "Contact admin",
+                                  "Dark mode",
+                                  "About"]
 
-    final var imageStrings = ["plus",
-                              "curUserImage",
-                              "clientsImage",
-                              "viewSavedItemsImage",
-                              "previousInvoicesImage",
-                              "settingsImage"]
+    final var imageStrings = ["submit",
+                              "holiday",
+                              "clients",
+                              "contact",
+                              "nightMode",
+                              "about"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,13 +49,13 @@ extension MoreViewController {
 
 extension MoreViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeActionLabels.count
+        return moreActionLabels.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoreCollectionViewCell", for: indexPath) as! MoreCollectionViewCell
 
-        cell.actionLabel.text = homeActionLabels[indexPath.row]
+        cell.actionLabel.text = moreActionLabels[indexPath.row]
         cell.imageIcon.image = UIImage(named: imageStrings[indexPath.row]) ?? UIImage()
         cell.updateShadow()
 
@@ -63,43 +63,30 @@ extension MoreViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let appDelegate = UIApplication.shared.windows.first
+
+
         switch indexPath.row {
         case 0:
-            let storyboard = UIStoryboard(name: "Invoice", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "newInvoiceVC")
-            vc.modalPresentationStyle = .overFullScreen
-
-            present(vc, animated: true)
+            performSegue(withIdentifier: "submit", sender: indexPath)
         case 1:
-            let storyboard = UIStoryboard(name: "CurUserInformation", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "editInfoVC")
-            vc.modalPresentationStyle = .popover
-
-            present(vc, animated: true)
+            performSegue(withIdentifier: "holiday", sender: indexPath)
         case 2:
-            let storyboard = UIStoryboard(name: "Clients", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "clientsVC")
-            vc.modalPresentationStyle = .popover
-
-            present(vc, animated: true)
+            performSegue(withIdentifier: "clients", sender: indexPath)
         case 3:
-            let storyboard = UIStoryboard(name: "Items", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "itemsVC")
-            vc.modalPresentationStyle = .popover
-
-            present(vc, animated: true)
+            self.performSegue(withIdentifier: "contactAdmin", sender: indexPath)
         case 4:
-            let storyboard = UIStoryboard(name: "PreviousInvoices", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "previousInvoicesVC")
-            vc.modalPresentationStyle = .overFullScreen
+            if #available(iOS 13.0, *) {
+            if appDelegate?.overrideUserInterfaceStyle == .light {
+                appDelegate?.overrideUserInterfaceStyle = .dark
+            }else {
+                appDelegate?.overrideUserInterfaceStyle = .light
+            }
+            }
 
-            present(vc, animated: true)
         case 5:
-            let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "settingsVC")
-            vc.modalPresentationStyle = .popover
+            self.performSegue(withIdentifier: "about", sender: indexPath)
 
-            present(vc, animated: true)
         default:
             print("Could not find indexpath")
         }

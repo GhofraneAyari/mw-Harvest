@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20017"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Bold.ttf">
+            <string>Cairo-Bold</string>
+        </array>
+        <array key="Cairo-Regular.ttf">
+            <string>Cairo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClientTableViewCell" customModule="mw_Harvest" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="crH-xM-xxG" customClass="ClientTableViewCell" customModule="mw_Harvest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="crH-xM-xxG" id="WrP-S1-2JW">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vodafone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uh-CT-1hL">
+                        <rect key="frame" x="20" y="32" width="244" height="32"/>
+                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="20"/>
+                        <color key="textColor" name="color1"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Porto, Portugal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYc-eL-oCE">
+                        <rect key="frame" x="200" y="32" width="194" height="32"/>
+                        <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="18"/>
+                        <color key="textColor" name="lightgray"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="zYc-eL-oCE" secondAttribute="trailing" constant="20" symbolic="YES" id="A7e-89-tR6"/>
+                    <constraint firstItem="1uh-CT-1hL" firstAttribute="leading" secondItem="WrP-S1-2JW" secondAttribute="leading" constant="20" symbolic="YES" id="H7j-LC-NqO"/>
+                    <constraint firstItem="1uh-CT-1hL" firstAttribute="top" secondItem="WrP-S1-2JW" secondAttribute="top" constant="32" id="Ijm-d9-YVy"/>
+                    <constraint firstItem="zYc-eL-oCE" firstAttribute="leading" secondItem="WrP-S1-2JW" secondAttribute="leading" constant="200" id="R0s-KS-zMF"/>
+                    <constraint firstItem="zYc-eL-oCE" firstAttribute="bottom" secondItem="1uh-CT-1hL" secondAttribute="bottom" id="TPz-Zo-G4R"/>
+                    <constraint firstAttribute="trailing" secondItem="1uh-CT-1hL" secondAttribute="trailing" constant="150" id="cB3-pW-Yy7"/>
+                    <constraint firstItem="zYc-eL-oCE" firstAttribute="top" secondItem="WrP-S1-2JW" secondAttribute="top" constant="32" id="mGA-sn-1a1"/>
+                    <constraint firstAttribute="bottom" secondItem="1uh-CT-1hL" secondAttribute="bottom" constant="33" id="urJ-uW-j9d"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="zYc-eL-oCE" id="7zO-vq-U3E"/>
+                <outlet property="clientNameLabel" destination="1uh-CT-1hL" id="LFX-M3-tfI"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="168.41517857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="color1">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightgray">
+            <color red="0.74900001287460327" green="0.74900001287460327" blue="0.74900001287460327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

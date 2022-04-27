@@ -2,6 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>msauth.com.tojal.mwiosapp</string>
+			</array>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array/>
+	<key>item 0</key>
+	<string>msauthv2</string>
+	<key>Item 1</key>
+	<string>msauthv3</string>
+	<key>Item 2</key>
+	<string>ms-outlook</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
