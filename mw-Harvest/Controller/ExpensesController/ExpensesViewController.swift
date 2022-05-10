@@ -16,13 +16,19 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
     var invoice: Invoice?
     var invoiceVC: InvoiceViewController!
     @Published var invoices = [Invoice]()
+    let user = UserManager.shared.user
 
     @IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.setEmptyMessage("No invoices at the moment.")
+        
+        
+
+        
+
+        tableView.setEmptyMessage("No invoices at the moment.")
 
         let cellNib = UINib(nibName: "InvoiceTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "invoiceCell")
@@ -47,6 +53,7 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
 
         getInvoiceData()
+        
     }
 
     func getInvoiceData() {
@@ -74,24 +81,25 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
 
                 if i.type == .added {
                     print("Added")
+                    self.invoices.append(Invoice(id: id, amount: amount, client: client, creator: creator, dueDate: dueDate, issueDate: issueDate, isOpen: isOpen))
                 }
                 if i.type == .modified {
                     print("Modified")
                 }
                 if i.type == .removed {
                     print("Removed")
+                    self.invoices = self.invoices.compactMap({ invoice in
+                        invoice.id == id ? nil : invoice
+                    })
                 }
 
                 
-
-                self.invoices.append(Invoice(id: id, amount: amount, client: client, creator: creator, dueDate: dueDate, issueDate: issueDate, isOpen: isOpen))
 //                if let row = self.invoices.count as? Any {
-////                    let indexPath = IndexPath(row: row as! Int - 1, section: 0)
-////                    self.tableView.insertRows(at: [indexPath], with: .automatic)
+                ////                    let indexPath = IndexPath(row: row as! Int - 1, section: 0)
+                ////                    self.tableView.insertRows(at: [indexPath], with: .automatic)
 //                }
             }
             self.tableView.reloadData()
-            
         }
     }
 
@@ -104,11 +112,8 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
         let closedInvoice = invoices.filter { $0.isOpen == false }
         tableView.backgroundView?.isHidden = !invoices.isEmpty
         if invoices.isEmpty == false {
-            
-            
-         
             switch segmentedControl.selectedSegmentIndex {
-            case 0 :
+            case 0:
                 return openInvoice.count
             case 1:
                 return closedInvoice.count
@@ -127,7 +132,7 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
         let closedInvoice = invoices.filter { $0.isOpen == false }
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            
+
             cell.set(invoice: openInvoice[indexPath.row])
 
         case 1:
@@ -142,6 +147,8 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "invoiceInfo", sender: indexPath)
     }
+    
+   
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "invoiceInfo",

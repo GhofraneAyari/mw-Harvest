@@ -9,10 +9,9 @@ import Foundation
 import UIKit
 
 class ClientTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var clientNameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-    
+    @IBOutlet var clientNameLabel: UILabel!
+    @IBOutlet var addressLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Init code

@@ -16,7 +16,7 @@ class ApiService {
         request.httpMethod = "GET"
         request.setValue(AccessToken, forHTTPHeaderField: "Authorization")
 
-        let task = URLSession.shared.dataTask(with: request) { [self] (data: Data?, _: URLResponse?, error: Error?) in
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, _: URLResponse?, error: Error?) in
 
             if error != nil {
                 print("error=\(String(describing: error))")

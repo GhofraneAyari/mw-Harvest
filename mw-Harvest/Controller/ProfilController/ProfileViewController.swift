@@ -15,17 +15,27 @@ class ProfileViewController: UITableViewController {
     @IBOutlet var profilImage: UIImageView!
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var fullNameLabel: UILabel!
+    @IBOutlet weak var weeklyHoursLabel: UILabel!
+    var hours: [Int] = [Int]()
+    var uids : [String] = [String]()
+    let user = UserManager.shared.user
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
         
-        
-        
+        var hoursByUser = Dictionary(uniqueKeysWithValues: zip(uids, hours))
+        hoursByUser = hoursByUser.filter({ $0.key == user?.id})
+        let userHours = hoursByUser.map { $0.1 }
+        let sumHours = userHours.reduce(0, +)
 
-        let user = UserManager.shared.user
         fullNameLabel.text = user?.displayName
         emailLabel.text = user?.userPrincipalName
+        weeklyHoursLabel.text = String(sumHours)
+        print(hours)
+        print(uids)
+        print(sumHours)
 
         let firstname = user?.givenName
         let lastname = user?.surname
@@ -54,15 +64,12 @@ class ProfileViewController: UITableViewController {
         lblNameInitialize.layer.render(in: UIGraphicsGetCurrentContext()!)
         profilImage.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        
     }
 
     @IBAction func sginOutButton(_ sender: Any) {
         let alert = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out?", preferredStyle: .alert)
 
         let deleteAction = UIAlertAction(title: "Sign out", style: .destructive, handler: { _ in
-            print("Call the deletion function here")
 
             KeychainWrapper.standard.removeObject(forKey: "accessToken")
             DispatchQueue.main.async {
@@ -77,10 +84,25 @@ class ProfileViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
 
-//    func weeklyHours() {
-////        let timeByUser = events.filter { $0.userId == UserManager.shared.userId }
-//
-//        print(events)
-//
-//    }
+    func weeklyHours() {
+        let db = Firestore.firestore()
+        
+
+        db.collection("timeEntry").document().addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            guard let time = document.get("time") as? String else {
+                return
+            }
+            guard let uid = document.get("userId") as? String else {
+                return
+            }
+            let intTime = Int(time)
+            self.hours.append(intTime ?? 0)
+            self.uids.append(uid)
+        }
+        
+    }
 }

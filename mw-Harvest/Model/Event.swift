@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 var eventsList = [Event]()
 
 class Event {
@@ -18,7 +17,7 @@ class Event {
     var time: String
     var date: String
     var userId: String
-    
+
     init(id: String, client: String, project: String, task: String, time: String, date: String, userId: String) {
         self.id = id
         self.client = client
@@ -28,10 +27,6 @@ class Event {
         self.date = date
         self.userId = userId
     }
-    
-    
-    
-    
 
     func eventsForDate(date: Date) -> [Event] {
         var daysEvents = [Event]()
@@ -42,7 +37,7 @@ class Event {
         }
         return daysEvents
     }
-    
+
     func getDate() -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -50,6 +45,4 @@ class Event {
         dateFormatter.locale = Locale.current
         return dateFormatter.date(from: date) // replace Date String
     }
-    
-    
 }

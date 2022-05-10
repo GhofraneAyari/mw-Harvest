@@ -65,7 +65,6 @@ extension MoreViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let appDelegate = UIApplication.shared.windows.first
 
-
         switch indexPath.row {
         case 0:
             performSegue(withIdentifier: "submit", sender: indexPath)
@@ -74,18 +73,18 @@ extension MoreViewController: UICollectionViewDataSource, UICollectionViewDelega
         case 2:
             performSegue(withIdentifier: "clients", sender: indexPath)
         case 3:
-            self.performSegue(withIdentifier: "contactAdmin", sender: indexPath)
+            performSegue(withIdentifier: "contactAdmin", sender: indexPath)
         case 4:
             if #available(iOS 13.0, *) {
-            if appDelegate?.overrideUserInterfaceStyle == .light {
-                appDelegate?.overrideUserInterfaceStyle = .dark
-            }else {
-                appDelegate?.overrideUserInterfaceStyle = .light
-            }
+                if appDelegate?.overrideUserInterfaceStyle == .light {
+                    appDelegate?.overrideUserInterfaceStyle = .dark
+                } else {
+                    appDelegate?.overrideUserInterfaceStyle = .light
+                }
             }
 
         case 5:
-            self.performSegue(withIdentifier: "about", sender: indexPath)
+            performSegue(withIdentifier: "about", sender: indexPath)
 
         default:
             print("Could not find indexpath")

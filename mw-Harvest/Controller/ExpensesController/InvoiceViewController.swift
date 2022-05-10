@@ -18,6 +18,7 @@ class InvoiceViewController: UITableViewController {
     var pdfObjects: [PDFObject] = []
     var expensesVC: ExpensesViewController!
     var invoice: Invoice?
+    @Published var invoices = [Invoice]()
 
     @IBOutlet var toggleSwitch: UISwitch!
     @IBOutlet var creatorLabel: UILabel!
@@ -57,6 +58,7 @@ class InvoiceViewController: UITableViewController {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { [self] _ in
             print("Call the deletion function here")
             deleteRow(with: invoice!.id)
+            invoices = invoices.filter { $0.id == invoice?.id }
 
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "deleteInvoice", sender: nil)
@@ -96,7 +98,7 @@ class InvoiceViewController: UITableViewController {
 
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "deleteInvoice", sender: nil)
-                        tableView.reloadData()
+                        self.tableView.reloadData()
                     }
 
                 } else {

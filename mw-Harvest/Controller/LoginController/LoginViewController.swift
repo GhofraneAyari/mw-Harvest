@@ -17,7 +17,8 @@ class LoginViewController: UIViewController {
     @IBOutlet var microsoftLoginButton: UIButton!
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    
     // Update the below to your client ID you received in the portal. The below is for running the demo only
     let kClientID = Constants.LogInMicrosoft.clientID
     let kGraphEndpoint = Constants.LogInMicrosoft.kGraphEndpoint // the Microsoft Graph endpoint
@@ -54,7 +55,7 @@ class LoginViewController: UIViewController {
 //        self.view.addSubview(orLabel)
 
         microsoftLoginButton.addTarget(self, action: #selector(callGraphAPI), for: .touchUpInside)
-        print("hey")
+        forgotPasswordButton.addTarget(self, action: #selector(callGraphAPI), for: .touchUpInside)
 
         do {
             try initMSAL()
@@ -68,10 +69,11 @@ class LoginViewController: UIViewController {
     @IBAction func LoginButtonPressed(_ sender: Any) {
         print("sign in button tapped")
 
-        let username = usernameTextField.text
-        let password = passwordTextField.text
+        guard let username = usernameTextField.text, let password = passwordTextField.text else {
+            return
+        }
 
-        if (username?.isEmpty)! || (password?.isEmpty)! {
+        if username.isEmpty || password.isEmpty {
             print("Username or password fields are empty")
             DispatchQueue.main.async {
                 print("incorrect - try again")
@@ -417,13 +419,10 @@ class LoginViewController: UIViewController {
             localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [self]
                 success, evaluateError in
                 if success && acceessToken != nil {
-                    
-                    
-                        DispatchQueue.main.async {
-                            self.performSegue(withIdentifier: "Login", sender: nil)
-                        }
-                        print("You are now logged in")
-                    
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "Login", sender: nil)
+                    }
+                    print("You are now logged in")
 
                     //                    if successful, make segue to tabview
 
@@ -462,4 +461,6 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    
 }

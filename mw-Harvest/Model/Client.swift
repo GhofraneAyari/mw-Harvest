@@ -11,9 +11,8 @@ class Client {
     var id: String
     var name: String
     var address: String
-    var currency : String
+    var currency: String
     var created_at: String
-   
 
     init(id: String, name: String, address: String, currency: String, created_at: String) {
         self.id = id
@@ -23,3 +22,4 @@ class Client {
         self.created_at = created_at
     }
 }
+

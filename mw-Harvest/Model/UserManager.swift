@@ -19,6 +19,4 @@ class UserManager {
 //    init () {
 //        userId = SaveUser()
 //    }
-
-    
 }

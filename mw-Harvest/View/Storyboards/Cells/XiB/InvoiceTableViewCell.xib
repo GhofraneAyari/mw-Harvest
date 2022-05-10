@@ -24,19 +24,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vodafone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9q-ru-Nmj">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vodafone" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9q-ru-Nmj">
                         <rect key="frame" x="12" y="19" width="222" height="37.5"/>
                         <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="20"/>
                         <color key="textColor" name="color1"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 5000,40" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lH6-Pn-V0N">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 5000,40" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lH6-Pn-V0N">
                         <rect key="frame" x="233" y="19" width="169" height="37.5"/>
                         <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="20"/>
                         <color key="textColor" name="color1"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paid on 27/04/2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yel-V7-nq5">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paid on 27/04/2022" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yel-V7-nq5">
                         <rect key="frame" x="12" y="60" width="283" height="30"/>
                         <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="16"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,7 +45,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="lH6-Pn-V0N" secondAttribute="trailing" constant="12" id="BYd-2Z-qev"/>
-                    <constraint firstItem="Yel-V7-nq5" firstAttribute="firstBaseline" secondItem="i9q-ru-Nmj" secondAttribute="baseline" constant="36" symbolType="layoutAnchor" id="E7M-RY-3uc"/>
+                    <constraint firstItem="Yel-V7-nq5" firstAttribute="firstBaseline" secondItem="i9q-ru-Nmj" secondAttribute="baseline" constant="20" symbolType="layoutAnchor" id="E7M-RY-3uc"/>
                     <constraint firstAttribute="trailing" secondItem="Yel-V7-nq5" secondAttribute="trailing" constant="119" id="PJK-lr-TWe"/>
                     <constraint firstItem="i9q-ru-Nmj" firstAttribute="leading" secondItem="Qgx-Tm-eB6" secondAttribute="leading" constant="12" id="Ua6-UJ-gXw"/>
                     <constraint firstItem="lH6-Pn-V0N" firstAttribute="leading" secondItem="Qgx-Tm-eB6" secondAttribute="leading" constant="233" id="Vbl-7n-n05"/>

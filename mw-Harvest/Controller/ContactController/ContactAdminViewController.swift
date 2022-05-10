@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ContactAdminViewController: UITableViewController{
+class ContactAdminViewController: UITableViewController {
     @IBAction func sendEmail(_ sender: Any) {
         let url = NSURL(string: "mailto:mailto:sara.cosme@mobiweb.pt")
         UIApplication.shared.open(url! as URL)
@@ -18,14 +18,13 @@ class ContactAdminViewController: UITableViewController{
             UIApplication.shared.openURL(url! as URL)
         }
     }
-    
-    
+
     @IBAction func call(_ sender: Any) {
-        let phoneNumber = "+35199999999"
+        let phoneNumber = "+351912464673"
         guard let url = URL(string: "telprompt://\(phoneNumber)"),
-                UIApplication.shared.canOpenURL(url) else {
-                return
-            }
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+              UIApplication.shared.canOpenURL(url) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

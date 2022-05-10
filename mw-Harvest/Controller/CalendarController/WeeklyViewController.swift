@@ -11,13 +11,11 @@ import FirebaseDatabase
 import KVKCalendar
 import UIKit
 
-var selectedDate = Date()
-
 final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var monthLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var tableView: UITableView!
-    
+    var selectedDate = Date()
 
     @Published var events = [Event]()
 
@@ -32,7 +30,6 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
 
         let cellNib = UINib(nibName: "EventTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "eventCell")
-        view.addSubview(tableView)
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -45,7 +42,10 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
     func getTimeEntryData() {
         let db = Firestore.firestore()
 
-        db.collection("timeEntry").addSnapshotListener { [self] snap, err in
+        db.collection("timeEntry").addSnapshotListener { [weak self] snap, err in
+            guard let self = self else {
+                return
+            }
 
             if err != nil {
                 print((err?.localizedDescription)!)
@@ -70,24 +70,37 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd/MM/yyyy"
 
-                let date = dateFormatter.string(from: selectedDate)
+                let date = dateFormatter.string(from: self.selectedDate)
 
                 if i.type == .added {
                     print("Added")
+                    self.events.append(Event(id: id, client: client, project: project, task: task, time: time, date: date, userId: UserManager.shared.userId!))
                 }
                 if i.type == .modified {
                     print("Modified")
+                    self.events = self.events.compactMap({ event in
+
+                        if event.id == id {
+                            let eventUpdate = event
+                            eventUpdate.client = client
+                            eventUpdate.project = project
+                            eventUpdate.task = task
+                            eventUpdate.time = time
+                            eventUpdate.date = date
+                            return eventUpdate
+                        }
+                        return event
+
+                    })
                 }
                 if i.type == .removed {
                     print("Removed")
+                    self.events = self.events.compactMap({ event in
+                        event.id == id ? nil : event
+                    })
                 }
-
-                self.events.append(Event(id: id, client: client, project: project, task: task, time: time, date: date, userId: UserManager.shared.userId!))
-//                if let row = self.events.count as? Any {
-//                    let indexPath = IndexPath(row: row as! Int - 1, section: 0)
-//                    self.tableView.insertRows(at: [indexPath], with: .automatic)
-//                }
             }
+
             self.tableView.reloadData()
         }
     }
@@ -157,17 +170,42 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
     }
 
     // TODO: Show events by date
+    // TODO: Show events per user
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return Event().eventsForDate(date: selectedDate).count
 //        return event!.eventsForDate(date: selectedDate).count
-        return events.count
+//        return events.count
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let today = dateFormatter.string(from: selectedDate)
+        let userid = UserManager.shared.userId
+        let eventPerDate = events.filter { $0.date == today && $0.userId == userid }
+        return eventPerDate.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
-        cell.set(event: events[indexPath.row])
+//        cell.set(event: events[indexPath.row])
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let today = dateFormatter.string(from: selectedDate)
+        let eventPerDate = events.filter { $0.date == today && $0.userId == user?.id }
+        cell.set(event: eventPerDate[indexPath.row])
         return cell
+    }
+
+    // TODO: Delete from firebase
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let id = events[indexPath.row].id
+//            events.remove(at: indexPath.row)
+
+            deleteTimeEntry(with: id)
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -175,7 +213,21 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
         tableView.reloadData()
     }
 
+    // TODO: Get weekly hours
+
     func getWeeklyHours() {
         print(events.filter { $0.userId == UserManager.shared.userId })
+    }
+
+    func deleteTimeEntry(with id: String) {
+        let db = Firestore.firestore()
+
+        db.collection("timeEntry").document(id).delete { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
     }
 }
