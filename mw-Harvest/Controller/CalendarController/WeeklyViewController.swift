@@ -8,7 +8,6 @@
 import EventKit
 import Firebase
 import FirebaseDatabase
-import KVKCalendar
 import UIKit
 
 final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {

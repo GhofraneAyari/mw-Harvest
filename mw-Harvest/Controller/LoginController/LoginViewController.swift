@@ -17,8 +17,8 @@ class LoginViewController: UIViewController {
     @IBOutlet var microsoftLoginButton: UIButton!
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet weak var forgotPasswordButton: UIButton!
-    
+    @IBOutlet var forgotPasswordButton: UIButton!
+
     // Update the below to your client ID you received in the portal. The below is for running the demo only
     let kClientID = Constants.LogInMicrosoft.clientID
     let kGraphEndpoint = Constants.LogInMicrosoft.kGraphEndpoint // the Microsoft Graph endpoint
@@ -39,20 +39,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//
-//        leftLineView.layer.borderWidth = 1.0
-//        leftLineView.layer.borderColor = UIColor.gray.cgColor
-//        self.view.addSubview(leftLineView)
-//
-//        rightLineView.layer.borderWidth = 1.0
-//        rightLineView.layer.borderColor = UIColor.gray.cgColor
-//        self.view.addSubview(rightLineView)
-//
-//        orLabel.text = "or"
-//        orLabel.font = UIFont(name: "Cairo-Regular", size: 20)
-//        orLabel.textColor = UIColor(red: 187/256, green: 187/256, blue: 187/256, alpha: 1.0)
-//        self.view.addSubview(orLabel)
 
         microsoftLoginButton.addTarget(self, action: #selector(callGraphAPI), for: .touchUpInside)
         forgotPasswordButton.addTarget(self, action: #selector(callGraphAPI), for: .touchUpInside)
@@ -461,6 +447,4 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
-    
 }

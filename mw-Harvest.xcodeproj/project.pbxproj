@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		250829A527F1B9C4006CD4FD /* Harvester in Frameworks */ = {isa = PBXBuildFile; productRef = 250829A427F1B9C4006CD4FD /* Harvester */; };
 		250B7E8B27E9E8240096E7A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 250B7E8A27E9E8240096E7A9 /* GoogleService-Info.plist */; };
 		250B7E8E27E9F2750096E7A9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B7E8D27E9F2750096E7A9 /* User.swift */; };
 		250B7E9D27EA2C2A0096E7A9 /* MSAL in Frameworks */ = {isa = PBXBuildFile; productRef = 250B7E9C27EA2C2A0096E7A9 /* MSAL */; };
@@ -17,7 +16,6 @@
 		250B7EA727EA2CE90096E7A9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 250B7EA627EA2CE90096E7A9 /* FirebaseDatabase */; };
 		250B7EA927EA2CE90096E7A9 /* FirebaseDatabaseSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 250B7EA827EA2CE90096E7A9 /* FirebaseDatabaseSwift-Beta */; };
 		250B7EAB27EA2CE90096E7A9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 250B7EAA27EA2CE90096E7A9 /* FirebaseFirestore */; };
-		250B7EAE27EA2E720096E7A9 /* KVKCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 250B7EAD27EA2E720096E7A9 /* KVKCalendar */; };
 		250B7EB027EA3DD40096E7A9 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B7EAF27EA3DD40096E7A9 /* ApiService.swift */; };
 		250B7EB227EA3EB30096E7A9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B7EB127EA3EB30096E7A9 /* ProfileViewModel.swift */; };
 		2514F38A28057B2C004BEB46 /* PDF-Generator in Frameworks */ = {isa = PBXBuildFile; productRef = 2514F38928057B2C004BEB46 /* PDF-Generator */; };
@@ -146,12 +144,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				250B7EA927EA2CE90096E7A9 /* FirebaseDatabaseSwift-Beta in Frameworks */,
-				250B7EAE27EA2E720096E7A9 /* KVKCalendar in Frameworks */,
 				250B7EA727EA2CE90096E7A9 /* FirebaseDatabase in Frameworks */,
 				250B7EA027EA2C5A0096E7A9 /* SwiftKeychainWrapper in Frameworks */,
 				250B7E9D27EA2C2A0096E7A9 /* MSAL in Frameworks */,
 				250B7EA527EA2CE90096E7A9 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
-				250829A527F1B9C4006CD4FD /* Harvester in Frameworks */,
 				250B7EA327EA2CE90096E7A9 /* FirebaseAnalytics in Frameworks */,
 				250B7EAB27EA2CE90096E7A9 /* FirebaseFirestore in Frameworks */,
 				2514F38A28057B2C004BEB46 /* PDF-Generator in Frameworks */,
@@ -426,8 +422,6 @@
 				250B7EA627EA2CE90096E7A9 /* FirebaseDatabase */,
 				250B7EA827EA2CE90096E7A9 /* FirebaseDatabaseSwift-Beta */,
 				250B7EAA27EA2CE90096E7A9 /* FirebaseFirestore */,
-				250B7EAD27EA2E720096E7A9 /* KVKCalendar */,
-				250829A427F1B9C4006CD4FD /* Harvester */,
 				2514F38928057B2C004BEB46 /* PDF-Generator */,
 			);
 			productName = "mw-Harvest";
@@ -988,11 +982,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		250829A427F1B9C4006CD4FD /* Harvester */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 250829A327F1B9C3006CD4FD /* XCRemoteSwiftPackageReference "Harvester" */;
-			productName = Harvester;
-		};
 		250B7E9C27EA2C2A0096E7A9 /* MSAL */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 250B7E9B27EA2C2A0096E7A9 /* XCRemoteSwiftPackageReference "microsoft-authentication-library-for-objc" */;
@@ -1027,11 +1016,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 250B7EA127EA2CE90096E7A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
-		};
-		250B7EAD27EA2E720096E7A9 /* KVKCalendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 250B7EAC27EA2E720096E7A9 /* XCRemoteSwiftPackageReference "KVKCalendar" */;
-			productName = KVKCalendar;
 		};
 		2514F38928057B2C004BEB46 /* PDF-Generator */ = {
 			isa = XCSwiftPackageProductDependency;
