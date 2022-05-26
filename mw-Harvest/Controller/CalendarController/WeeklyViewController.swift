@@ -15,13 +15,9 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var tableView: UITableView!
     var selectedDate = Date()
-
     @Published var events = [Event]()
-
     let user = UserManager.shared.user
-
     var event: Event?
-
     var totalSquares = [Date]()
 
     override func viewDidLoad() {

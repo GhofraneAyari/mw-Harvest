@@ -16,10 +16,8 @@ class MoreCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
         contentView.layer.cornerRadius = 10
-
         contentView.layer.masksToBounds = true
         clipsToBounds = false
-
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowOffset = CGSize(width: 1, height: 2.0)
         layer.shadowRadius = 2.5

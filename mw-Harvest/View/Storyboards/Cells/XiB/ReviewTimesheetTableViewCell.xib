@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20017"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Bold.ttf">
+            <string>Cairo-Bold</string>
+        </array>
+        <array key="Cairo-Regular.ttf">
+            <string>Cairo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="116" id="6jT-cd-0Nw" customClass="ReviewTimesheetTableViewCell" customModule="mw_Harvest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6jT-cd-0Nw" id="7iF-22-gc6">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZa-n2-FcV">
+                        <rect key="frame" x="20" y="40" width="85" height="34"/>
+                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="18"/>
+                        <color key="textColor" name="color1"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vodafone" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ttt-2M-Wxw">
+                        <rect key="frame" x="20" y="10" width="65" height="30"/>
+                        <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="16"/>
+                        <color key="textColor" name="darkgray"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Programming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dye-Gw-jzx">
+                        <rect key="frame" x="20" y="72" width="93" height="30"/>
+                        <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="16"/>
+                        <color key="textColor" name="lightgray"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4b-b8-iMV">
+                        <rect key="frame" x="359.5" y="40" width="34.5" height="34"/>
+                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="18"/>
+                        <color key="textColor" name="color1"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Ttt-2M-Wxw" secondAttribute="trailing" constant="329" id="F0O-29-ABE"/>
+                    <constraint firstItem="Ttt-2M-Wxw" firstAttribute="top" secondItem="7iF-22-gc6" secondAttribute="top" constant="10" id="JdY-vB-Jtb"/>
+                    <constraint firstItem="Dye-Gw-jzx" firstAttribute="leading" secondItem="yZa-n2-FcV" secondAttribute="leading" id="KHl-z5-QmL"/>
+                    <constraint firstItem="yZa-n2-FcV" firstAttribute="top" secondItem="Ttt-2M-Wxw" secondAttribute="bottom" id="TfK-Ap-DGT"/>
+                    <constraint firstAttribute="trailing" secondItem="j4b-b8-iMV" secondAttribute="trailing" constant="20" symbolic="YES" id="TgN-Lh-CSV"/>
+                    <constraint firstItem="Dye-Gw-jzx" firstAttribute="top" secondItem="yZa-n2-FcV" secondAttribute="bottom" constant="-2" id="VJZ-gV-TB5"/>
+                    <constraint firstAttribute="bottom" secondItem="j4b-b8-iMV" secondAttribute="bottom" constant="42" id="VhQ-K0-Hi6"/>
+                    <constraint firstItem="yZa-n2-FcV" firstAttribute="leading" secondItem="Ttt-2M-Wxw" secondAttribute="leading" id="d44-eJ-rja"/>
+                    <constraint firstItem="Ttt-2M-Wxw" firstAttribute="leading" secondItem="7iF-22-gc6" secondAttribute="leading" constant="20" symbolic="YES" id="gXg-bF-sgv"/>
+                    <constraint firstItem="j4b-b8-iMV" firstAttribute="top" secondItem="7iF-22-gc6" secondAttribute="top" constant="40" id="uYu-a6-NlU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="11.594202898550726" y="163.39285714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="color1">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="darkgray">
+            <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightgray">
+            <color red="0.74900001287460327" green="0.74900001287460327" blue="0.74900001287460327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

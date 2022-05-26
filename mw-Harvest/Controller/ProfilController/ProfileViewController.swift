@@ -15,27 +15,22 @@ class ProfileViewController: UITableViewController {
     @IBOutlet var profilImage: UIImageView!
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var fullNameLabel: UILabel!
-    @IBOutlet weak var weeklyHoursLabel: UILabel!
+    @IBOutlet var weeklyHoursLabel: UILabel!
     var hours: [Int] = [Int]()
-    var uids : [String] = [String]()
+    var uids: [String] = [String]()
     let user = UserManager.shared.user
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-        
+
         var hoursByUser = Dictionary(uniqueKeysWithValues: zip(uids, hours))
-        hoursByUser = hoursByUser.filter({ $0.key == user?.id})
+        hoursByUser = hoursByUser.filter({ $0.key == user?.id })
         let userHours = hoursByUser.map { $0.1 }
         let sumHours = userHours.reduce(0, +)
 
         fullNameLabel.text = user?.displayName
         emailLabel.text = user?.userPrincipalName
-        weeklyHoursLabel.text = String(sumHours)
-        print(hours)
-        print(uids)
-        print(sumHours)
+//        weeklyHoursLabel.text = String(sumHours)
 
         let firstname = user?.givenName
         let lastname = user?.surname
@@ -86,7 +81,6 @@ class ProfileViewController: UITableViewController {
 
     func weeklyHours() {
         let db = Firestore.firestore()
-        
 
         db.collection("timeEntry").document().addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
@@ -103,6 +97,5 @@ class ProfileViewController: UITableViewController {
             self.hours.append(intTime ?? 0)
             self.uids.append(uid)
         }
-        
     }
 }

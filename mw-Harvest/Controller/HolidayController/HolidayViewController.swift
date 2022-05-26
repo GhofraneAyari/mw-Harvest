@@ -8,6 +8,8 @@
 import Foundation
 import MessageUI
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class HolidayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, MFMailComposeViewControllerDelegate {
     @IBOutlet var leaveTypePicker: UIPickerView!
@@ -44,6 +46,12 @@ class HolidayViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
 
     @IBAction func saveAction(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let startdate = dateFormatter.string(from: startDate.date)
+        let enddate = dateFormatter.string(from: endDate.date)
+        let leaveType = leaveTypeData[leaveTypePicker.selectedRow(inComponent: 0)]
+        
         if startDate.date > endDate.date {
             print("Start date can't be after end date")
             DispatchQueue.main.async {
@@ -58,6 +66,7 @@ class HolidayViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let alert = UIAlertController(title: "Submit holiday", message: "Do you approve of sending a generated email to HR?", preferredStyle: .alert)
             let holidayAction = UIAlertAction(title: "Submit holiday", style: .destructive, handler: { _ in
                 self.sendEmail()
+                self.addholidayInfo(userId: self.user?.id ?? "", username: self.user?.displayName ?? "", leave_type: leaveType, start_date: startdate, end_date: enddate, description: self.descriptionLabel.text ?? "", is_approved: false)
                 //            let success = UIAlertController(title: "Success", message: "Holiday request was successful", preferredStyle: .alert)
 
                 //            DispatchQueue.main.async {
@@ -94,5 +103,12 @@ class HolidayViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
 
         print(body)
+    }
+    
+    func addholidayInfo(userId: String, username: String, leave_type: String, start_date: String, end_date: String, description: String, is_approved: Bool) {
+        let db = Firestore.firestore()
+        db.collection("holidayRequests")
+            .document()
+            .setData(["userId": userId, "username": username, "leave_type" : leave_type, "start_date" : start_date, "end_date" : end_date, "description": description, "is_approved" : is_approved])
     }
 }

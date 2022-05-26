@@ -12,11 +12,11 @@ class InvoiceTableViewCell: UITableViewCell {
     @IBOutlet var clientLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var paymentDateLabel: UILabel!
-    @IBOutlet weak var warning: UIImageView!
-    
+    @IBOutlet var warning: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+
         // Init code
     }
 

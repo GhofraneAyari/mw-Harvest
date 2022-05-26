@@ -16,13 +16,12 @@ class NewClientViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet var currencyPicker: UIPickerView!
 
     var currencyData: [String] = [String]()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        currencyPicker.delegate = self
-        currencyPicker.dataSource = self
+//        currencyPicker.delegate = self
+//        currencyPicker.dataSource = self
         currencyData = ["EUR", "USD", "GBP", "JPY", "CAD", "CHF", "AUD"]
     }
 
@@ -65,10 +64,12 @@ class NewClientViewController: UIViewController, UIPickerViewDelegate, UIPickerV
 
                 return
             }
+        } else {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "success", sender: nil)
+            }
+            addClientInfo(name: name, address: address, currency: currency, created_at: currentDate)
         }
-
-        addClientInfo(name: name, address: address, currency: currency, created_at: currentDate)
-       
     }
 
     func addClientInfo(name: String, address: String, currency: String, created_at: String) {
@@ -77,6 +78,10 @@ class NewClientViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             .document()
             .setData(["name": name, "address": address, "currency": currency, "created_at": created_at])
 //        self.dismiss(animated: true, completion: nil)
-        navigationController?.popViewController(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
+    
+    
 }

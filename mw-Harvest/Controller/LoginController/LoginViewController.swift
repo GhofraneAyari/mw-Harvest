@@ -35,8 +35,6 @@ class LoginViewController: UIViewController {
     var rightLineView = UIView(frame: CGRect(x: 250, y: 343, width: 130, height: 1.0))
     let orLabel = UILabel(frame: CGRect(x: 198, y: 325, width: 18, height: 30))
 
-    let profile = ProfileViewController()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -121,8 +119,10 @@ class LoginViewController: UIViewController {
                     if (accessToken?.isEmpty) != nil {
                         print("you are logged in")
 
-                        let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
-                        let saveTokenID: Bool = KeychainWrapper.standard.set(tokenId != nil, forKey: "tokenId")
+//                        let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
+//                        let saveTokenID: Bool = KeychainWrapper.standard.set(tokenId != nil, forKey: "tokenId")
+                        let _: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
+                        let _: Bool = KeychainWrapper.standard.set(tokenId != nil, forKey: "tokenId")
 
                     } else {
                         print("could not perform request")
@@ -395,36 +395,72 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func touchIdButtonPressed(_ sender: Any) {
-        let localAuthenticationContext = LAContext()
-        var authorizationError: NSError?
-        let reason = "Authentication required to login"
-        let acceessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
+        let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Please authorize with Face ID"
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, error in
 
-        if
-            localAuthenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authorizationError) {
-            localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [self]
-                success, evaluateError in
-                if success && acceessToken != nil {
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "Login", sender: nil)
-                    }
-                    print("You are now logged in")
+                if success {
+                    print("You are logged in")
+                }
 
-                    //                    if successful, make segue to tabview
+                DispatchQueue.main.async {
+                    guard success, error == nil else {
+                        // failed
 
-                } else {
-                    guard let error = evaluateError else {
+                        let alert = UIAlertController(title: "Failed to Authenticate", message: "Please try again", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                        self!.present(alert, animated: true)
+
                         return
                     }
-                    print(error)
                 }
+
+                DispatchQueue.main.async {
+                    self!.performSegue(withIdentifier: "Login", sender: nil)
+                }
+
+                // Show other screen
+                // Suceess
             }
         } else {
-            guard let error = authorizationError else {
-                return
-            }
-            print(error)
+            // Cant use
+            let alert = UIAlertController(title: "Unavailable", message: "You can't' use this feature", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            present(alert, animated: true)
         }
+
+//        let localAuthenticationContext = LAContext()
+//        var authorizationError: NSError?
+//        let reason = "Authentication required to login"
+//        let acceessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
+//
+//        if
+//            localAuthenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authorizationError) {
+//            localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [self]
+//                success, evaluateError in
+//                if success && acceessToken != nil {
+//                    DispatchQueue.main.async {
+//                        self.performSegue(withIdentifier: "Login", sender: nil)
+//                    }
+//                    print("You are now logged in")
+//
+//                    //                    if successful, make segue to tabview
+//
+//                } else {
+//                    guard let error = evaluateError else {
+//                        return
+//                    }
+//                    print(error)
+//                }
+//            }
+//        } else {
+//            guard let error = authorizationError else {
+//                return
+//            }
+//            print(error)
+//        }
     }
 
     func checkUserExists() {

@@ -22,11 +22,6 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-
-        
 
         tableView.setEmptyMessage("No invoices at the moment.")
 
@@ -53,7 +48,6 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
 
         getInvoiceData()
-        
     }
 
     func getInvoiceData() {
@@ -93,7 +87,6 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
                     })
                 }
 
-                
 //                if let row = self.invoices.count as? Any {
                 ////                    let indexPath = IndexPath(row: row as! Int - 1, section: 0)
                 ////                    self.tableView.insertRows(at: [indexPath], with: .automatic)
@@ -147,8 +140,6 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "invoiceInfo", sender: indexPath)
     }
-    
-   
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "invoiceInfo",

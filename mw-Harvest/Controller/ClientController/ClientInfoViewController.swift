@@ -16,12 +16,12 @@ class ClientInfoViewController: UITableViewController {
     @IBOutlet var clientAddress: UILabel!
     @IBOutlet var currency: UILabel!
     @IBOutlet var createdAtLabel: UILabel!
-    @IBOutlet weak var deleteClientButton: UIButton!
+    @IBOutlet var deleteClientButton: UIButton!
     @IBOutlet var tableview: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserManager.shared.userId != "d1a43029-76df-4a0c-aa7c-5d864cea94fa"  {
+        if UserManager.shared.userId != "d1a43029-76df-4a0c-aa7c-5d864cea94fa" {
             deleteClientButton.isHidden = true
         }
 
@@ -66,17 +66,13 @@ class ClientInfoViewController: UITableViewController {
             }
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (section == 1) {
+        if section == 1 {
             if UserManager.shared.userId != "d1a43029-76df-4a0c-aa7c-5d864cea94fa" {
                 return 0.0
-                
             }
-            
         }
         return UITableView.automaticDimension
     }
 }
-
-

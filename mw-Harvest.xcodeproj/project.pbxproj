@@ -16,10 +16,12 @@
 		250B7EA727EA2CE90096E7A9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 250B7EA627EA2CE90096E7A9 /* FirebaseDatabase */; };
 		250B7EA927EA2CE90096E7A9 /* FirebaseDatabaseSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 250B7EA827EA2CE90096E7A9 /* FirebaseDatabaseSwift-Beta */; };
 		250B7EAB27EA2CE90096E7A9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 250B7EAA27EA2CE90096E7A9 /* FirebaseFirestore */; };
-		250B7EB027EA3DD40096E7A9 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B7EAF27EA3DD40096E7A9 /* ApiService.swift */; };
-		250B7EB227EA3EB30096E7A9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B7EB127EA3EB30096E7A9 /* ProfileViewModel.swift */; };
 		2514F38A28057B2C004BEB46 /* PDF-Generator in Frameworks */ = {isa = PBXBuildFile; productRef = 2514F38928057B2C004BEB46 /* PDF-Generator */; };
 		2514F38E2805C332004BEB46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514F38D2805C332004BEB46 /* LoginViewController.swift */; };
+		2573DEA128339EC700EC4008 /* ReviewTimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2573DEA028339EC700EC4008 /* ReviewTimesheetViewController.swift */; };
+		2573DEA328339EE100EC4008 /* SubmitUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2573DEA228339EE100EC4008 /* SubmitUserViewController.swift */; };
+		2573DEA52833A02100EC4008 /* ReviewTimesheetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2573DEA42833A02100EC4008 /* ReviewTimesheetTableViewCell.xib */; };
+		2573DEA72833A07500EC4008 /* ReviewTimesheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2573DEA62833A07500EC4008 /* ReviewTimesheetTableViewCell.swift */; };
 		2577628227DF5201009BE492 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2577628027DF5201009BE492 /* Cairo-Regular.ttf */; };
 		2577628327DF5201009BE492 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2577628127DF5201009BE492 /* Cairo-Bold.ttf */; };
 		257A7984282A66B2000BB770 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257A7983282A66B2000BB770 /* Project.swift */; };
@@ -85,9 +87,11 @@
 /* Begin PBXFileReference section */
 		250B7E8A27E9E8240096E7A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		250B7E8D27E9F2750096E7A9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		250B7EAF27EA3DD40096E7A9 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		250B7EB127EA3EB30096E7A9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2514F38D2805C332004BEB46 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2573DEA028339EC700EC4008 /* ReviewTimesheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTimesheetViewController.swift; sourceTree = "<group>"; };
+		2573DEA228339EE100EC4008 /* SubmitUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitUserViewController.swift; sourceTree = "<group>"; };
+		2573DEA42833A02100EC4008 /* ReviewTimesheetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTimesheetTableViewCell.xib; sourceTree = "<group>"; };
+		2573DEA62833A07500EC4008 /* ReviewTimesheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTimesheetTableViewCell.swift; sourceTree = "<group>"; };
 		2577628027DF5201009BE492 /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
 		2577628127DF5201009BE492 /* Cairo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Bold.ttf"; sourceTree = "<group>"; };
 		257A7983282A66B2000BB770 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 				25C1944827DFA34B00977C49 /* CalendarViewController.swift */,
 				2588B28827E0F6FF00E29201 /* WeeklyViewController.swift */,
 				2588B28A27E0FF7A00E29201 /* TimesheetEntryViewController.swift */,
+				2573DEA028339EC700EC4008 /* ReviewTimesheetViewController.swift */,
+				2573DEA228339EE100EC4008 /* SubmitUserViewController.swift */,
 			);
 			path = CalendarController;
 			sourceTree = "<group>";
@@ -221,8 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				258BBC2E27E22BD8008B23CE /* ProfileViewController.swift */,
-				250B7EAF27EA3DD40096E7A9 /* ApiService.swift */,
-				250B7EB127EA3EB30096E7A9 /* ProfileViewModel.swift */,
 			);
 			path = ProfilController;
 			sourceTree = "<group>";
@@ -245,6 +249,7 @@
 				258D6AEA27FC512700E7D7BA /* InvoiceTableViewCell.swift */,
 				25A0B49828197D7E001E45BD /* ClientTableViewCell.swift */,
 				2588B28327E0EB4B00E29201 /* CalendarCell.swift */,
+				2573DEA62833A07500EC4008 /* ReviewTimesheetTableViewCell.swift */,
 				25D758D428195F4100BE4C48 /* XiB */,
 			);
 			path = Cells;
@@ -275,6 +280,7 @@
 				258D6AE827FC4D8400E7D7BA /* InvoiceTableViewCell.xib */,
 				25D758C4280EAFE200BE4C48 /* EventTableViewCell.xib */,
 				25A0B49628197C6C001E45BD /* ClientTableViewCell.xib */,
+				2573DEA42833A02100EC4008 /* ReviewTimesheetTableViewCell.xib */,
 			);
 			path = XiB;
 			sourceTree = "<group>";
@@ -526,6 +532,7 @@
 				25A0B49728197C6C001E45BD /* ClientTableViewCell.xib in Resources */,
 				2577628327DF5201009BE492 /* Cairo-Bold.ttf in Resources */,
 				25E3E2B227DA655300104852 /* Assets.xcassets in Resources */,
+				2573DEA52833A02100EC4008 /* ReviewTimesheetTableViewCell.xib in Resources */,
 				2577628227DF5201009BE492 /* Cairo-Regular.ttf in Resources */,
 				25E3E2AD27DA655200104852 /* Main.storyboard in Resources */,
 				25D758C5280EAFE200BE4C48 /* EventTableViewCell.xib in Resources */,
@@ -557,11 +564,12 @@
 			files = (
 				25D758CA281841E300BE4C48 /* ContactAdminViewController.swift in Sources */,
 				25C1944927DFA34B00977C49 /* CalendarViewController.swift in Sources */,
+				2573DEA128339EC700EC4008 /* ReviewTimesheetViewController.swift in Sources */,
 				2588B28B27E0FF7A00E29201 /* TimesheetEntryViewController.swift in Sources */,
 				258BB65527EB7517001288C5 /* UserManager.swift in Sources */,
 				258D6AEB27FC512700E7D7BA /* InvoiceTableViewCell.swift in Sources */,
+				2573DEA72833A07500EC4008 /* ReviewTimesheetTableViewCell.swift in Sources */,
 				257A7984282A66B2000BB770 /* Project.swift in Sources */,
-				250B7EB027EA3DD40096E7A9 /* ApiService.swift in Sources */,
 				2588B28727E0EE1A00E29201 /* CalendarHelper.swift in Sources */,
 				258D6AED27FC99DF00E7D7BA /* InvoiceViewController.swift in Sources */,
 				25A0B49928197D7E001E45BD /* ClientTableViewCell.swift in Sources */,
@@ -581,9 +589,9 @@
 				25D758C7280EB1A400BE4C48 /* EventTableViewCell.swift in Sources */,
 				25E7A2AE2822BDF5004D049C /* TabBarController.swift in Sources */,
 				25E7A2A628202C48004D049C /* HolidayViewController.swift in Sources */,
-				250B7EB227EA3EB30096E7A9 /* ProfileViewModel.swift in Sources */,
 				25E7A2A928214BCD004D049C /* AboutTableViewController.swift in Sources */,
 				25E3E2A827DA655200104852 /* SceneDelegate.swift in Sources */,
+				2573DEA328339EE100EC4008 /* SubmitUserViewController.swift in Sources */,
 				25CBB7122829189B003B0577 /* Task.swift in Sources */,
 				25D758CF28195C7800BE4C48 /* Client.swift in Sources */,
 				2588B28927E0F6FF00E29201 /* WeeklyViewController.swift in Sources */,

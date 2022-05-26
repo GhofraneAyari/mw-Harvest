@@ -18,10 +18,16 @@ class TimesheetEntryViewController: UIViewController, UITextFieldDelegate, UIPic
     var clientNames: [String] = [String]()
     var taskNames: [String] = [String]()
     var projectNames: [String] = [String]()
+    @Published var projects = [Project]()
+    @Published var tasks = [Task]()
+    let db = Firestore.firestore()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getData()
+        getClientData()
+        getTaskData()
+        getProjectData()
 
         // Client text field picker view
         let clientPicker = UIPickerView()
@@ -74,6 +80,7 @@ class TimesheetEntryViewController: UIViewController, UITextFieldDelegate, UIPic
         } else if projectTextField.isFirstResponder {
             return projectNames[row]
         }
+        pickerView.reloadAllComponents()
 
         return nil
     }
@@ -91,6 +98,7 @@ class TimesheetEntryViewController: UIViewController, UITextFieldDelegate, UIPic
             let itemselected = projectNames[row]
             projectTextField.text = itemselected
         }
+        pickerView.reloadAllComponents()
     }
 
     @IBAction func saveAction(_ sender: Any) {
@@ -127,6 +135,8 @@ class TimesheetEntryViewController: UIViewController, UITextFieldDelegate, UIPic
         }
 
         addEntry(userId: userId, client: client, project: project, task: task, time: time, date: date)
+        addTask(userId: userId, name: task)
+        addProject(userId: userId, name: project)
 
 //        eventsList.append(newEvent)
 //        navigationController?.popViewController(animated: true)
@@ -143,9 +153,19 @@ class TimesheetEntryViewController: UIViewController, UITextFieldDelegate, UIPic
 //        self.dismiss(animated: true, completion: nil)
     }
 
-    func getData() {
-        let db = Firestore.firestore()
+    func addTask(userId: String, name: String) {
+        db.collection("task")
+            .document()
+            .setData(["userId": userId, "name": name])
+    }
 
+    func addProject(userId: String, name: String) {
+        db.collection("project")
+            .document()
+            .setData(["userId": userId, "name": name])
+    }
+
+    func getClientData() {
         db.collection("client").addSnapshotListener { snap, err in
 
             if err != nil {
@@ -161,7 +181,10 @@ class TimesheetEntryViewController: UIViewController, UITextFieldDelegate, UIPic
                 self.clientNames.append(clientName)
             }
         }
-        db.collection("timeEntry").addSnapshotListener { snap, err in
+    }
+
+    func getProjectData() {
+        db.collection("project").addSnapshotListener { snap, err in
 
             if err != nil {
                 print((err?.localizedDescription)!)
@@ -169,15 +192,39 @@ class TimesheetEntryViewController: UIViewController, UITextFieldDelegate, UIPic
             }
 
             for i in snap!.documentChanges {
-                guard let taskName = i.document.get("task") as? String else {
-                    return
-                }
-                guard let projectName = i.document.get("project") as? String else {
+                let id = i.document.documentID
+                guard let projectName = i.document.get("name") as? String else {
                     return
                 }
 
-                self.taskNames.append(taskName)
+                guard let userid = i.document.get("userId") as? String else {
+                    return
+                }
+                self.projects.append(Project(id: id, name: projectName, userId: userid))
                 self.projectNames.append(projectName)
+            }
+        }
+    }
+
+    func getTaskData() {
+        db.collection("task").addSnapshotListener { snap, err in
+
+            if err != nil {
+                print((err?.localizedDescription)!)
+                return
+            }
+
+            for i in snap!.documentChanges {
+                let id = i.document.documentID
+                guard let taskName = i.document.get("name") as? String else {
+                    return
+                }
+                guard let userid = i.document.get("userId") as? String else {
+                    return
+                }
+
+                self.tasks.append(Task(id: id, name: taskName, userId: userid))
+                self.taskNames.append(taskName)
             }
         }
     }

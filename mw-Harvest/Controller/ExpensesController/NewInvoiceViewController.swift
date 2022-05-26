@@ -101,7 +101,7 @@ class NewInvoiceViewController: UIViewController, UITextFieldDelegate, UIPickerV
         let issueDate = dateFormatter.string(from: issueDatePicker.date)
         let dueDate = dateFormatter.string(from: dueDatePicker.date)
 
-        if creator.isEmpty && client.isEmpty && (amountTextField.text!.isEmpty) && (issueDatePicker.date > dueDatePicker.date) {
+        if creator.isEmpty || client.isEmpty || (amountTextField.text!.isEmpty) || (issueDatePicker.date > dueDatePicker.date) {
             print("Some of the fields are empty")
             DispatchQueue.main.async {
                 print("incorrect - try again")
