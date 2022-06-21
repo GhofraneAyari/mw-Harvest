@@ -38,7 +38,7 @@ class ClientInfoViewController: UITableViewController {
 
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { [self] _ in
             print("Call the deletion function here")
-            deleteClient(with: client!.id)
+            ClientService.instance.deleteClient(with: client!.id)
 
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "deleteClient", sender: nil)
@@ -55,21 +55,9 @@ class ClientInfoViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
 
-    func deleteClient(with id: String) {
-        let db = Firestore.firestore()
-
-        db.collection("client").document(id).delete { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                print("Document successfully removed!")
-            }
-        }
-    }
-
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 1 {
-            if UserManager.shared.userId != "d1a43029-76df-4a0c-aa7c-5d864cea94fa" {
+            if UserManager.shared.userId != Constants.AdminContact.adminID {
                 return 0.0
             }
         }

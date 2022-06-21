@@ -29,20 +29,20 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.register(cellNib, forCellReuseIdentifier: "invoiceCell")
         view.addSubview(tableView)
 
-        var layoutGuide: UILayoutGuide!
+//        var layoutGuide: UILayoutGuide!
 
-        if #available(iOS 11.0, *) {
-            layoutGuide = view.safeAreaLayoutGuide
-        } else {
-            // Fallback on earlier versions
-            layoutGuide = view.layoutMarginsGuide
-        }
+//        if #available(iOS 11.0, *) {
+//            layoutGuide = view.safeAreaLayoutGuide
+//        } else {
+//            // Fallback on earlier versions
+//            layoutGuide = view.layoutMarginsGuide
+//        }
 
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: layoutGuide.topAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor).isActive = true
+//        tableView.translatesAutoresizingMaskIntoConstraints = false
+//        tableView.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor).isActive = true
+//        tableView.topAnchor.constraint(equalTo: layoutGuide.topAnchor).isActive = true
+//        tableView.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor).isActive = true
+//        tableView.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor).isActive = true
 
         tableView.dataSource = self
         tableView.delegate = self

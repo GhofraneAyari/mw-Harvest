@@ -17,8 +17,9 @@ class Event {
     var time: String
     var date: String
     var userId: String
+    var is_submitted : Bool
 
-    init(id: String, client: String, project: String, task: String, time: String, date: String, userId: String) {
+    init(id: String, client: String, project: String, task: String, time: String, date: String, userId: String, is_submitted : Bool) {
         self.id = id
         self.client = client
         self.project = project
@@ -26,6 +27,7 @@ class Event {
         self.time = time
         self.date = date
         self.userId = userId
+        self.is_submitted = is_submitted
     }
 
     func eventsForDate(date: Date) -> [Event] {

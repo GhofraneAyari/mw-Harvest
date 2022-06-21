@@ -134,35 +134,13 @@ class TimesheetEntryViewController: UIViewController, UITextFieldDelegate, UIPic
             return
         }
 
-        addEntry(userId: userId, client: client, project: project, task: task, time: time, date: date)
-        addTask(userId: userId, name: task)
-        addProject(userId: userId, name: project)
+        TimesheetService.instance.addTimesheetEntry(userId: userId, client: client, project: project, task: task, time: time, date: date)
+        navigationController?.popViewController(animated: true)
+        DataService.instance.addDocument(collection: "task", userId: userId, name: task)
+        DataService.instance.addDocument(collection: "project", userId: userId, name: project)
 
 //        eventsList.append(newEvent)
 //        navigationController?.popViewController(animated: true)
-    }
-
-    func addEntry(userId: String, client: String, project: String, task: String, time: String, date: String) {
-        let db = Firestore.firestore()
-        db.collection("timeEntry")
-            .document()
-            .setData(["userId": userId, "client": client, "project": project, "task": task, "time": time, "date": date])
-
-        navigationController?.popViewController(animated: true)
-
-//        self.dismiss(animated: true, completion: nil)
-    }
-
-    func addTask(userId: String, name: String) {
-        db.collection("task")
-            .document()
-            .setData(["userId": userId, "name": name])
-    }
-
-    func addProject(userId: String, name: String) {
-        db.collection("project")
-            .document()
-            .setData(["userId": userId, "name": name])
     }
 
     func getClientData() {

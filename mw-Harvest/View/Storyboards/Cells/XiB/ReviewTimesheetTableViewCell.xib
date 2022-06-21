@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Programming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dye-Gw-jzx">
-                        <rect key="frame" x="20" y="72" width="93" height="30"/>
+                        <rect key="frame" x="20" y="72" width="92.5" height="30"/>
                         <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="16"/>
                         <color key="textColor" name="lightgray"/>
                         <nil key="highlightedColor"/>
@@ -62,6 +62,12 @@
                     <constraint firstItem="j4b-b8-iMV" firstAttribute="top" secondItem="7iF-22-gc6" secondAttribute="top" constant="40" id="uYu-a6-NlU"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="company" destination="Ttt-2M-Wxw" id="cVc-hE-gnV"/>
+                <outlet property="name" destination="yZa-n2-FcV" id="hfh-Pv-l9a"/>
+                <outlet property="project" destination="Dye-Gw-jzx" id="e6Z-Ay-8KX"/>
+                <outlet property="time" destination="j4b-b8-iMV" id="bx5-PX-vla"/>
+            </connections>
             <point key="canvasLocation" x="11.594202898550726" y="163.39285714285714"/>
         </tableViewCell>
     </objects>

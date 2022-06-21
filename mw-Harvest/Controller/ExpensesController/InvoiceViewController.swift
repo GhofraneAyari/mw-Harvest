@@ -57,7 +57,7 @@ class InvoiceViewController: UITableViewController {
 
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { [self] _ in
             print("Call the deletion function here")
-            deleteRow(with: invoice!.id)
+            ExpensesService.instance.deleteInvoice(with: invoice!.id)
             invoices = invoices.filter { $0.id == invoice?.id }
 
             DispatchQueue.main.async {
@@ -67,24 +67,10 @@ class InvoiceViewController: UITableViewController {
         })
         alert.addAction(deleteAction)
 
-//        dismiss(animated: true, completion: nil)
-
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(cancelAction)
 
         present(alert, animated: true, completion: nil)
-    }
-
-    func deleteRow(with id: String) {
-        let db = Firestore.firestore()
-
-        db.collection("invoice").document(id).delete { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                print("Document successfully removed!")
-            }
-        }
     }
 
     @IBAction func toggleBuutton(_ sender: UISwitch) {

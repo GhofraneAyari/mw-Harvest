@@ -13,12 +13,11 @@ import UIKit
 class ClientViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @Published var clients = [Client]()
     @IBOutlet var tableview: UITableView!
-    
-    @IBOutlet weak var addButton: UIBarButtonItem!
-    
+    @IBOutlet var addButton: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         addButton.target = self
         addButton.action = #selector(addButtonClicked)
 
@@ -43,20 +42,20 @@ class ClientViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
             for i in snap!.documentChanges {
                 let id = i.document.documentID
-                let name = i.document.get("name") as! String
-//                let address = i.document.get("address") as! String
-                let currency = i.document.get("currency") as! String
-                let created_at = i.document.get("created_at") as! String
-
+                guard let name = i.document.get("name") as? String else {
+                    return
+                }
+                guard let currency = i.document.get("currency") as? String else {
+                    return
+                }
+                guard let created_at = i.document.get("created_at") as? String else {
+                    return
+                }
                 guard let address = i.document.get("address") as? String else {
                     return
                 }
 
                 self.clients.append(Client(id: id, name: name, address: address, currency: currency, created_at: created_at))
-//                if let row = self.invoices.count as? Any {
-                ////                    let indexPath = IndexPath(row: row as! Int - 1, section: 0)
-                ////                    self.tableView.insertRows(at: [indexPath], with: .automatic)
-//                }
             }
             self.tableview.reloadData()
         }
@@ -89,7 +88,7 @@ class ClientViewController: UIViewController, UITableViewDelegate, UITableViewDa
             clientVC.client = client
         }
     }
-    
+
     @objc func addButtonClicked(sender: UIBarButtonItem) {
         if UserManager.shared.userId != "d1a43029-76df-4a0c-aa7c-5d864cea94fa" {
             print("Admin only")
@@ -100,13 +99,8 @@ class ClientViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
                 return
             }
-        }else {
-            performSegue(withIdentifier: "newClient", sender: self) 
-            
+        } else {
+            performSegue(withIdentifier: "newClient", sender: self)
         }
     }
-    
-    
-    
-    
 }

@@ -14,7 +14,6 @@ class NewClientViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet var clientName: UITextField!
     @IBOutlet var clientAddress: UITextField!
     @IBOutlet var currencyPicker: UIPickerView!
-
     var currencyData: [String] = [String]()
 
     override func viewDidLoad() {
@@ -48,8 +47,7 @@ class NewClientViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let date = Date()
 
-        guard let name = clientName.text,
-              let address = clientAddress.text else {
+        guard let name = clientName.text, let address = clientAddress.text else {
             return
         }
         let currency = currencyData[currencyPicker.selectedRow(inComponent: 0)]
@@ -68,20 +66,10 @@ class NewClientViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "success", sender: nil)
             }
-            addClientInfo(name: name, address: address, currency: currency, created_at: currentDate)
+            ClientService.instance.addClientInfo(name: name, address: address, currency: currency, created_at: currentDate)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
-
-    func addClientInfo(name: String, address: String, currency: String, created_at: String) {
-        let db = Firestore.firestore()
-        db.collection("client")
-            .document()
-            .setData(["name": name, "address": address, "currency": currency, "created_at": created_at])
-//        self.dismiss(animated: true, completion: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
-    
-    
 }

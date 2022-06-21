@@ -15,7 +15,6 @@ class NewInvoiceViewController: UIViewController, UITextFieldDelegate, UIPickerV
     @IBOutlet var dueDatePicker: UIDatePicker!
     @IBOutlet var issueDatePicker: UIDatePicker!
     @IBOutlet var amountTextField: UITextField!
-
     var client: Client?
     @Published var clients = [Client]()
     var clientNames: [String] = [String]()
@@ -125,15 +124,7 @@ class NewInvoiceViewController: UIViewController, UITextFieldDelegate, UIPickerV
             }
         }
 
-        addInfo(creator: creator, client: client, issueDate: issueDate, dueDate: dueDate, amount: amount, isOpen: isOpen ?? true)
-    }
-
-    func addInfo(creator: String, client: String, issueDate: String, dueDate: String, amount: Double, isOpen: Bool) {
-        let db = Firestore.firestore()
-        db.collection("invoice")
-            .document()
-            .setData(["creator": creator, "client": client, "currency": "EUR", "amount": amount, "issueDate": issueDate, "dueDate": dueDate, "isOpen": true])
-
+        ExpensesService.instance.addInvoiceInfo(creator: creator, client: client, issueDate: issueDate, dueDate: dueDate, amount: amount, isOpen: isOpen ?? true)
         dismiss(animated: true, completion: nil)
     }
 

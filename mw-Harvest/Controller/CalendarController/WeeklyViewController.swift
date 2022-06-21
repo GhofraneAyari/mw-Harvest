@@ -19,6 +19,7 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
     let user = UserManager.shared.user
     var event: Event?
     var totalSquares = [Date]()
+    static let instance = WeeklyViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,9 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
                 guard let time = i.document.get("time") as? String else {
                     return
                 }
+                guard let is_submitted = i.document.get("is_submitted") as? Bool else {
+                    return
+                }
 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -69,7 +73,7 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
 
                 if i.type == .added {
                     print("Added")
-                    self.events.append(Event(id: id, client: client, project: project, task: task, time: time, date: date, userId: UserManager.shared.userId!))
+                    self.events.append(Event(id: id, client: client, project: project, task: task, time: time, date: date, userId: UserManager.shared.userId!, is_submitted: is_submitted))
                 }
                 if i.type == .modified {
                     print("Modified")
@@ -192,14 +196,12 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
         return cell
     }
 
-    // TODO: Delete from firebase
-
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let id = events[indexPath.row].id
 //            events.remove(at: indexPath.row)
 
-            deleteTimeEntry(with: id)
+            TimesheetService.instance.deleteTimeEntry(with: id)
         }
     }
 
@@ -212,17 +214,5 @@ final class WeeklyViewController: UIViewController, UICollectionViewDelegate, UI
 
     func getWeeklyHours() {
         print(events.filter { $0.userId == UserManager.shared.userId })
-    }
-
-    func deleteTimeEntry(with id: String) {
-        let db = Firestore.firestore()
-
-        db.collection("timeEntry").document(id).delete { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                print("Document successfully removed!")
-            }
-        }
     }
 }

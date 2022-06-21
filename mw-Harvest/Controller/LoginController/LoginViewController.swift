@@ -46,6 +46,7 @@ class LoginViewController: UIViewController {
         } catch let error {
             print("Unable to create Application Context \(error)")
         }
+
         loadCurrentAccount()
         platformViewDidLoadSetup()
     }
@@ -72,11 +73,12 @@ class LoginViewController: UIViewController {
         requestAccessToken(completion: { [weak self] in
             guard let self = self else { return }
 
-            self.getUserData(completion: {
-                self.checkUserExists()
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "Login", sender: nil)
-                }
+            UserService.instance.getUserData(completion: {
+                UserService.instance.checkUserExists()
+
+//                DispatchQueue.main.async {
+//                    self.performSegue(withIdentifier: "Login", sender: nil)
+//                }
             }
             )
 
@@ -84,12 +86,17 @@ class LoginViewController: UIViewController {
     }
 
     func requestAccessToken(completion: (() -> Void)?) {
-        let username = usernameTextField.text
-        let password = passwordTextField.text
+//        let username = usernameTextField.text
+//        let password = passwordTextField.text
+
+        let username = "ghofrane.ayari@mobiweb.pt"
+        let password = "Daragino@10"
 
         var request = URLRequest(url: URL(string: Constants.LogInMicrosoft.microsoftUrl)!)
         request.httpMethod = "POST"
-        let postString = "username=\(username!)&password=\(password!)&client_id=\(Constants.LogInMicrosoft.clientID)&scope=\(Constants.LogInMicrosoft.scope)&client_secret=\(Constants.LogInMicrosoft.clientSecret)&grant_type=\(Constants.LogInMicrosoft.grant_type)"
+//        let postString = "username=\(username!)&password=\(password!)&client_id=\(Constants.LogInMicrosoft.clientID)&scope=\(Constants.LogInMicrosoft.scope)&client_secret=\(Constants.LogInMicrosoft.clientSecret)&grant_type=\(Constants.LogInMicrosoft.grant_type)"
+
+        let postString = "username=\(username)&password=\(password)&client_id=\(Constants.LogInMicrosoft.clientID)&scope=\(Constants.LogInMicrosoft.scope)&client_secret=\(Constants.LogInMicrosoft.clientSecret)&grant_type=\(Constants.LogInMicrosoft.grant_type)"
 
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { [weak self] (data: Data?, _: URLResponse?, error: Error?) in
@@ -109,18 +116,13 @@ class LoginViewController: UIViewController {
                 if let parseJSON = json {
                     let accessToken = parseJSON["access_token"] as? String
                     let tokenId = parseJSON["id_token"] as? String
-
-                    // print("Access token: \(String(describing: accessToken))")
-
-                    //                    let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
-                    //                    let saveTokenID: Bool = KeychainWrapper.standard.set(tokenId != nil, forKey: "tokenId")
-                    // acceessToken = ""
-                    // accessToken = nil
                     if (accessToken?.isEmpty) != nil {
                         print("you are logged in")
 
-//                        let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
-//                        let saveTokenID: Bool = KeychainWrapper.standard.set(tokenId != nil, forKey: "tokenId")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            self.performSegue(withIdentifier: "loading", sender: nil)
+                        }
+
                         let _: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
                         let _: Bool = KeychainWrapper.standard.set(tokenId != nil, forKey: "tokenId")
 
@@ -139,37 +141,6 @@ class LoginViewController: UIViewController {
                 print(error)
             }
 
-            completion?()
-        }
-        task.resume()
-    }
-
-    func getUserData(completion: (() -> Void)?) {
-        let AccessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
-
-        var request = URLRequest(url: URL(string: Constants.profil.profilUrl)!)
-        request.httpMethod = "GET"
-        request.setValue(AccessToken, forHTTPHeaderField: "Authorization")
-
-        let task = URLSession.shared.dataTask(with: request) { (data: Data?, _: URLResponse?, error: Error?) in
-
-            // TO LEARN
-            guard let data = data else {
-                return
-            }
-
-            if error != nil {
-                print("error=\(String(describing: error))")
-                return
-            }
-
-            let decoder = JSONDecoder()
-
-            do {
-                UserManager.shared.user = try decoder.decode(User.self, from: data)
-            } catch {
-                print("failed to convert\(error)")
-            }
             completion?()
         }
         task.resume()
@@ -264,22 +235,12 @@ class LoginViewController: UIViewController {
     func acquireTokenSilently(_ account: MSALAccount!) {
         guard let applicationContext = self.applicationContext else { return }
 
-        /**
-         Acquire a token for an existing account silently
-         - forScopes: Permissions you want included in the access token received in the result in the completionBlock. Not all scopes are guaranteed to be included in the access token returned.
-         - account: An account object that we retrieved from the application object before that the authentication flow will be locked down to.
-         - completionBlock: The completion block that will be called when the authentication flow completes, or encounters an error.
-         */
-
         let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
 
         applicationContext.acquireTokenSilent(with: parameters) { result, error in
 
             if let error = error {
                 let nsError = error as NSError
-                // interactionRequired means we need to ask the user to sign-in. This usually happens
-                // when the user's Refresh Token is expired or if the user has changed their password
-                // among other possible reasons.
 
                 if nsError.domain == MSALErrorDomain {
                     if nsError.code == MSALError.interactionRequired.rawValue {
@@ -331,48 +292,9 @@ class LoginViewController: UIViewController {
         }.resume()
     }
 
-    //    func updateLogging(text : String) {
-    //        if Thread.isMainThread {
-    //            self.loggingText.text = text
-    //        } else {
-    //            DispatchQueue.main.async {
-    //                self.loggingText.text = text
-    //            }
-    //        }
-    //    }
-
-    //    func updateAccountLabel() {
-    //        guard let currentAccount = self.currentAccount else {
-    //            self.usernameTextField.text = "Signed out"
-    //            return
-    //        }
-    //
-    //        self.usernameTextField.text = currentAccount.username
-    //    }
-
     func updateCurrentAccount(account: MSALAccount?) {
         currentAccount = account
-        // self.updateAccountLabel()
-        // self.updateSignOutButton(enabled: account != nil)
     }
-
-    //    @objc func getDeviceMode(_ sender: AnyObject) {
-    //        if #available(iOS 13.0, *) {
-    //            self.applicationContext?.getDeviceInformation(with: nil, completionBlock: { (deviceInformation, error) in
-    //
-    //                guard let deviceInfo = deviceInformation else {
-    //                    print("Device info not returned. Error: \(String(describing: error))")
-    //                    return
-    //                }
-    //
-    //                let isSharedDevice = deviceInfo.deviceMode == .shared
-    //                let modeString = isSharedDevice ? "shared" : "private"
-    //                print("Received device info. Device is in the \(modeString) mode.")
-    //            })
-    //        } else {
-    //            print("Running on older iOS. GetDeviceInformation API is unavailable.")
-    //        }
-    //    }
 
     @objc func initMSAL() throws {
         guard let authorityURL = URL(string: kAuthority) else {
@@ -380,7 +302,7 @@ class LoginViewController: UIViewController {
             return
         }
         let authority = try MSALAADAuthority(url: authorityURL)
-        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil,
+        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: "msauth.com.mw-Harvest://auth",
                                                                   authority: authority)
         applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
         initWebViewParams()
@@ -429,58 +351,6 @@ class LoginViewController: UIViewController {
             let alert = UIAlertController(title: "Unavailable", message: "You can't' use this feature", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
             present(alert, animated: true)
-        }
-
-//        let localAuthenticationContext = LAContext()
-//        var authorizationError: NSError?
-//        let reason = "Authentication required to login"
-//        let acceessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
-//
-//        if
-//            localAuthenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authorizationError) {
-//            localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [self]
-//                success, evaluateError in
-//                if success && acceessToken != nil {
-//                    DispatchQueue.main.async {
-//                        self.performSegue(withIdentifier: "Login", sender: nil)
-//                    }
-//                    print("You are now logged in")
-//
-//                    //                    if successful, make segue to tabview
-//
-//                } else {
-//                    guard let error = evaluateError else {
-//                        return
-//                    }
-//                    print(error)
-//                }
-//            }
-//        } else {
-//            guard let error = authorizationError else {
-//                return
-//            }
-//            print(error)
-//        }
-    }
-
-    func checkUserExists() {
-        guard let userId = UserManager.shared.userId, userId.isEmpty == false else {
-            return
-        }
-
-        let db = Firestore.firestore()
-        let docRef = db.collection("user").document(userId)
-        docRef.getDocument { document, _ in
-            if document!.exists {
-                print("document exists")
-
-            } else {
-                print("document doesnt exist")
-
-                db.collection("user")
-                    .document(userId)
-                    .setData(["id": userId, "email": UserManager.shared.user?.mail as Any, "first_name": UserManager.shared.user?.givenName as Any, "last_name": UserManager.shared.user?.surname as Any, "role": UserManager.shared.user?.jobTitle as Any, "telephone": UserManager.shared.user?.mobilePhone as Any])
-            }
         }
     }
 }
