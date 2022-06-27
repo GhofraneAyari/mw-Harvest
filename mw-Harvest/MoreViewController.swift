@@ -10,6 +10,7 @@ import UIKit
 
 class MoreViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var holidayListButton: UIBarButtonItem!
 
     final var moreActionLabels = ["Submit timesheet",
                                   "Request holiday",
@@ -29,6 +30,11 @@ class MoreViewController: UIViewController {
         super.viewDidLoad()
 
         setup()
+
+        if UserManager.shared.userId != "d1a43029-76df-4a0c-aa7c-5d864cea94fa" {
+            holidayListButton?.isEnabled = false
+            holidayListButton?.tintColor = UIColor.clear
+        }
     }
 }
 

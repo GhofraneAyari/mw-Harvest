@@ -18,6 +18,10 @@
 		250B7EAB27EA2CE90096E7A9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 250B7EAA27EA2CE90096E7A9 /* FirebaseFirestore */; };
 		2514F38A28057B2C004BEB46 /* PDF-Generator in Frameworks */ = {isa = PBXBuildFile; productRef = 2514F38928057B2C004BEB46 /* PDF-Generator */; };
 		2514F38E2805C332004BEB46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514F38D2805C332004BEB46 /* LoginViewController.swift */; };
+		255D2AA428620D2D008C2927 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D2AA328620D2D008C2927 /* Holiday.swift */; };
+		255D2AA62862113A008C2927 /* SubmittedHolidayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D2AA52862113A008C2927 /* SubmittedHolidayListViewController.swift */; };
+		255D2AA8286217E5008C2927 /* SubmittedHolidayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D2AA7286217E5008C2927 /* SubmittedHolidayTableViewCell.swift */; };
+		255D2AAA28621823008C2927 /* SubmittedHolidayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 255D2AA928621823008C2927 /* SubmittedHolidayTableViewCell.xib */; };
 		2573DEA128339EC700EC4008 /* ReviewTimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2573DEA028339EC700EC4008 /* ReviewTimesheetViewController.swift */; };
 		2573DEA328339EE100EC4008 /* SubmitUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2573DEA228339EE100EC4008 /* SubmitUserViewController.swift */; };
 		2573DEA52833A02100EC4008 /* ReviewTimesheetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2573DEA42833A02100EC4008 /* ReviewTimesheetTableViewCell.xib */; };
@@ -67,6 +71,7 @@
 		25E7A2A628202C48004D049C /* HolidayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E7A2A528202C48004D049C /* HolidayViewController.swift */; };
 		25E7A2A928214BCD004D049C /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E7A2A828214BCD004D049C /* AboutTableViewController.swift */; };
 		25E7A2AE2822BDF5004D049C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E7A2AD2822BDF5004D049C /* TabBarController.swift */; };
+		25E913942869CCA0001FD25A /* HolidayInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E913932869CCA0001FD25A /* HolidayInfoViewController.swift */; };
 		25EB09B12844FB7F0095EEE3 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EB09B02844FB7F0095EEE3 /* LoadingViewController.swift */; };
 		25EB09B3284503630095EEE3 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EB09B2284503630095EEE3 /* UserService.swift */; };
 		25EB09B5284504070095EEE3 /* ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EB09B4284504070095EEE3 /* ClientService.swift */; };
@@ -96,6 +101,10 @@
 		250B7E8A27E9E8240096E7A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		250B7E8D27E9F2750096E7A9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2514F38D2805C332004BEB46 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		255D2AA328620D2D008C2927 /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
+		255D2AA52862113A008C2927 /* SubmittedHolidayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedHolidayListViewController.swift; sourceTree = "<group>"; };
+		255D2AA7286217E5008C2927 /* SubmittedHolidayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedHolidayTableViewCell.swift; sourceTree = "<group>"; };
+		255D2AA928621823008C2927 /* SubmittedHolidayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmittedHolidayTableViewCell.xib; sourceTree = "<group>"; };
 		2573DEA028339EC700EC4008 /* ReviewTimesheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTimesheetViewController.swift; sourceTree = "<group>"; };
 		2573DEA228339EE100EC4008 /* SubmitUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitUserViewController.swift; sourceTree = "<group>"; };
 		2573DEA42833A02100EC4008 /* ReviewTimesheetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTimesheetTableViewCell.xib; sourceTree = "<group>"; };
@@ -149,6 +158,7 @@
 		25E7A2A528202C48004D049C /* HolidayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayViewController.swift; sourceTree = "<group>"; };
 		25E7A2A828214BCD004D049C /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		25E7A2AD2822BDF5004D049C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		25E913932869CCA0001FD25A /* HolidayInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayInfoViewController.swift; sourceTree = "<group>"; };
 		25EB09B02844FB7F0095EEE3 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		25EB09B2284503630095EEE3 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		25EB09B4284504070095EEE3 /* ClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientService.swift; sourceTree = "<group>"; };
@@ -269,6 +279,7 @@
 				25A0B49828197D7E001E45BD /* ClientTableViewCell.swift */,
 				2588B28327E0EB4B00E29201 /* CalendarCell.swift */,
 				2573DEA62833A07500EC4008 /* ReviewTimesheetTableViewCell.swift */,
+				255D2AA7286217E5008C2927 /* SubmittedHolidayTableViewCell.swift */,
 				25D758D428195F4100BE4C48 /* XiB */,
 			);
 			path = Cells;
@@ -313,6 +324,7 @@
 				25D758C4280EAFE200BE4C48 /* EventTableViewCell.xib */,
 				25A0B49628197C6C001E45BD /* ClientTableViewCell.xib */,
 				2573DEA42833A02100EC4008 /* ReviewTimesheetTableViewCell.xib */,
+				255D2AA928621823008C2927 /* SubmittedHolidayTableViewCell.xib */,
 			);
 			path = XiB;
 			sourceTree = "<group>";
@@ -385,6 +397,7 @@
 				25D758CE28195C7800BE4C48 /* Client.swift */,
 				25CBB7112829189B003B0577 /* Task.swift */,
 				257A7983282A66B2000BB770 /* Project.swift */,
+				255D2AA328620D2D008C2927 /* Holiday.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -416,6 +429,8 @@
 			isa = PBXGroup;
 			children = (
 				25E7A2A528202C48004D049C /* HolidayViewController.swift */,
+				255D2AA52862113A008C2927 /* SubmittedHolidayListViewController.swift */,
+				25E913932869CCA0001FD25A /* HolidayInfoViewController.swift */,
 			);
 			path = HolidayController;
 			sourceTree = "<group>";
@@ -560,6 +575,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				255D2AAA28621823008C2927 /* SubmittedHolidayTableViewCell.xib in Resources */,
 				25E3E2B527DA655300104852 /* LaunchScreen.storyboard in Resources */,
 				258D6AE927FC4D8400E7D7BA /* InvoiceTableViewCell.xib in Resources */,
 				25A0B49728197C6C001E45BD /* ClientTableViewCell.xib in Resources */,
@@ -597,6 +613,7 @@
 			files = (
 				25D758CA281841E300BE4C48 /* ContactAdminViewController.swift in Sources */,
 				25C1944927DFA34B00977C49 /* CalendarViewController.swift in Sources */,
+				255D2AA428620D2D008C2927 /* Holiday.swift in Sources */,
 				2573DEA128339EC700EC4008 /* ReviewTimesheetViewController.swift in Sources */,
 				2588B28B27E0FF7A00E29201 /* TimesheetEntryViewController.swift in Sources */,
 				258BB65527EB7517001288C5 /* UserManager.swift in Sources */,
@@ -612,6 +629,7 @@
 				25EB09B9284505850095EEE3 /* TimesheetService.swift in Sources */,
 				25EB09B5284504070095EEE3 /* ClientService.swift in Sources */,
 				258BBC2627E20CC8008B23CE /* MoreCollectionViewCell.swift in Sources */,
+				25E913942869CCA0001FD25A /* HolidayInfoViewController.swift in Sources */,
 				25E7A2A3281FEBC1004D049C /* ClientInfoViewController.swift in Sources */,
 				258D6AE227F5F95300E7D7BA /* NewInvoiceViewController.swift in Sources */,
 				25E3E2A627DA655200104852 /* AppDelegate.swift in Sources */,
@@ -622,10 +640,12 @@
 				259E94C2283FC3CB00193EE6 /* DataService.swift in Sources */,
 				25D758CD281941C600BE4C48 /* ClientViewController.swift in Sources */,
 				25EB09B7284504EA0095EEE3 /* ExpensesService.swift in Sources */,
+				255D2AA8286217E5008C2927 /* SubmittedHolidayTableViewCell.swift in Sources */,
 				2514F38E2805C332004BEB46 /* LoginViewController.swift in Sources */,
 				258D6AE427FB149200E7D7BA /* Invoice.swift in Sources */,
 				25D758C7280EB1A400BE4C48 /* EventTableViewCell.swift in Sources */,
 				25E7A2AE2822BDF5004D049C /* TabBarController.swift in Sources */,
+				255D2AA62862113A008C2927 /* SubmittedHolidayListViewController.swift in Sources */,
 				25E7A2A628202C48004D049C /* HolidayViewController.swift in Sources */,
 				25E7A2A928214BCD004D049C /* AboutTableViewController.swift in Sources */,
 				25E3E2A827DA655200104852 /* SceneDelegate.swift in Sources */,

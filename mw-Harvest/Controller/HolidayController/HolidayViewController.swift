@@ -67,6 +67,9 @@ class HolidayViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let holidayAction = UIAlertAction(title: "Submit holiday", style: .destructive, handler: { _ in
                 self.sendEmail()
                 HolidayService.instance.addHolidayInfo(userId: self.user?.id ?? "", username: self.user?.displayName ?? "", leave_type: leaveType, start_date: startdate, end_date: enddate, description: self.descriptionLabel.text ?? "", is_approved: false)
+                
+                self.navigationController?.popViewController(animated: true)
+            
                 //            let success = UIAlertController(title: "Success", message: "Holiday request was successful", preferredStyle: .alert)
 
                 //            DispatchQueue.main.async {
@@ -74,12 +77,20 @@ class HolidayViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 //            }
             })
             alert.addAction(holidayAction)
+            
+            
 
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             alert.addAction(cancelAction)
-
             present(alert, animated: true, completion: nil)
+            
+
+
         }
+        
+        
+
+        
     }
 
     func sendEmail() {

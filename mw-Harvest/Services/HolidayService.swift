@@ -18,4 +18,14 @@ class HolidayService {
             .document()
             .setData(["userId": userId, "username": username, "leave_type": leave_type, "start_date": start_date, "end_date": end_date, "description": description, "is_approved": is_approved])
     }
+    
+    func denyRequest(with id: String) {
+        db.collection("holidayRequests").document(id).delete { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
 }

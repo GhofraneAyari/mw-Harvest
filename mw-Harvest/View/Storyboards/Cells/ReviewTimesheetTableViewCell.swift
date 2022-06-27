@@ -8,13 +8,12 @@
 import Foundation
 import UIKit
 
-class ReviewTimesheetTableViewCell : UITableViewCell {
-    
+class ReviewTimesheetTableViewCell: UITableViewCell {
     @IBOutlet var name: UILabel!
     @IBOutlet var company: UILabel!
     @IBOutlet var project: UILabel!
-    @IBOutlet weak var time: UILabel!
-    
+    @IBOutlet var time: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Init code
@@ -30,5 +29,4 @@ class ReviewTimesheetTableViewCell : UITableViewCell {
         project.text = event.project
         time.text = event.time
     }
-    
 }

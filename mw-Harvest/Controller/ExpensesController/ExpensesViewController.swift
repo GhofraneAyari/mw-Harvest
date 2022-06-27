@@ -17,9 +17,8 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
     var invoiceVC: InvoiceViewController!
     @Published var invoices = [Invoice]()
     let user = UserManager.shared.user
-
     @IBOutlet var tableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
