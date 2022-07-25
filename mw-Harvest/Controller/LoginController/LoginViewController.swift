@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
     var leftLineView = UIView(frame: CGRect(x: 32, y: 343, width: 130, height: 1.0))
     var rightLineView = UIView(frame: CGRect(x: 250, y: 343, width: 130, height: 1.0))
     let orLabel = UILabel(frame: CGRect(x: 198, y: 325, width: 18, height: 30))
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +72,7 @@ class LoginViewController: UIViewController {
         }
 
         requestAccessToken(completion: { [weak self] in
-            guard let self = self else { return }
+            guard self != nil else { return }
 
             UserService.instance.getUserData(completion: {
                 UserService.instance.checkUserExists()
@@ -86,17 +87,17 @@ class LoginViewController: UIViewController {
     }
 
     func requestAccessToken(completion: (() -> Void)?) {
-//        let username = usernameTextField.text
-//        let password = passwordTextField.text
+        let username = usernameTextField.text
+        let password = passwordTextField.text
 
-        let username = "ghofrane.ayari@mobiweb.pt"
-        let password = "Daragino@10"
+//        let username = "marcio.martins@mobiweb.pt"
+//        let password = "Marcio202204"
 
         var request = URLRequest(url: URL(string: Constants.LogInMicrosoft.microsoftUrl)!)
         request.httpMethod = "POST"
-//        let postString = "username=\(username!)&password=\(password!)&client_id=\(Constants.LogInMicrosoft.clientID)&scope=\(Constants.LogInMicrosoft.scope)&client_secret=\(Constants.LogInMicrosoft.clientSecret)&grant_type=\(Constants.LogInMicrosoft.grant_type)"
+        let postString = "username=\(username!)&password=\(password!)&client_id=\(Constants.LogInMicrosoft.clientID)&scope=\(Constants.LogInMicrosoft.scope)&client_secret=\(Constants.LogInMicrosoft.clientSecret)&grant_type=\(Constants.LogInMicrosoft.grant_type)"
 
-        let postString = "username=\(username)&password=\(password)&client_id=\(Constants.LogInMicrosoft.clientID)&scope=\(Constants.LogInMicrosoft.scope)&client_secret=\(Constants.LogInMicrosoft.clientSecret)&grant_type=\(Constants.LogInMicrosoft.grant_type)"
+//        let postString = "username=\(username)&password=\(password)&client_id=\(Constants.LogInMicrosoft.clientID)&scope=\(Constants.LogInMicrosoft.scope)&client_secret=\(Constants.LogInMicrosoft.clientSecret)&grant_type=\(Constants.LogInMicrosoft.grant_type)"
 
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { [weak self] (data: Data?, _: URLResponse?, error: Error?) in
@@ -145,6 +146,8 @@ class LoginViewController: UIViewController {
         }
         task.resume()
     }
+    
+    
 
     func getGraphEndpoint() -> String {
         return kGraphEndpoint.hasSuffix("/") ? (kGraphEndpoint + "v1.0/me/") : (kGraphEndpoint + "/v1.0/me/")
@@ -352,5 +355,14 @@ class LoginViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
             present(alert, animated: true)
         }
+    }
+    
+    @IBAction func hidePassword(_ sender: Any) {
+        if passwordTextField.isSecureTextEntry == true {
+            passwordTextField.isSecureTextEntry = false
+        }else {
+            passwordTextField.isSecureTextEntry = true
+        }
+        
     }
 }

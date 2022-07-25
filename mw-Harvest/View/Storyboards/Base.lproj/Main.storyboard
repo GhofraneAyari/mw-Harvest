@@ -37,7 +37,7 @@
         <!--Loading View Controller-->
         <scene sceneID="n72-lL-XrQ">
             <objects>
-                <viewController id="Y7f-H5-bDX" customClass="LoadingViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y7f-H5-bDX" customClass="LoadingViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6mS-mO-rdR">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
         <!--Login View Controller-->
         <scene sceneID="SQ2-pt-qr5">
             <objects>
-                <viewController id="cz3-fg-lbi" customClass="LoginViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cz3-fg-lbi" customClass="LoginViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9JP-uT-V4U">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,6 +164,16 @@
                                 <rect key="frame" x="-41" y="-61" width="499" height="1015"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgz-C4-SQF">
+                                <rect key="frame" x="344" y="462" width="52" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <buttonConfiguration key="configuration" style="plain" image="eye.fill" catalog="system">
+                                    <color key="baseForegroundColor" red="0.3921568627" green="0.76862745099999996" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="hidePassword:" destination="cz3-fg-lbi" eventType="touchUpInside" id="Sr6-yz-p7m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0J4-Jv-Ie1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -210,7 +220,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="uqk-lg-lrK">
             <objects>
-                <tabBarController storyboardIdentifier="TabBar" id="wND-JR-mx3" customClass="TabBarController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" id="wND-JR-mx3" customClass="TabBarController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="rQz-yH-9nV"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mVe-m9-ua8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -250,7 +260,7 @@
         <!--More View Controller-->
         <scene sceneID="gTv-DK-fDb">
             <objects>
-                <viewController id="eQy-BW-lIF" customClass="MoreViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eQy-BW-lIF" customClass="MoreViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y0i-co-cGB">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,7 +330,7 @@
         <!--Submitted Holiday List View Controller-->
         <scene sceneID="p24-Fy-enK">
             <objects>
-                <viewController id="Feu-im-6Ru" customClass="SubmittedHolidayListViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Feu-im-6Ru" customClass="SubmittedHolidayListViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f76-nf-Yq2">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,7 +385,7 @@
         <!--Review Timesheet View Controller-->
         <scene sceneID="QTy-iJ-IgI">
             <objects>
-                <tableViewController id="0aa-mc-NT7" customClass="ReviewTimesheetViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="0aa-mc-NT7" customClass="ReviewTimesheetViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="foe-9B-T25">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -416,7 +426,7 @@
         <!--Submit Timesheet-->
         <scene sceneID="GlB-TL-Csc">
             <objects>
-                <viewController id="FSx-Th-bJf" customClass="SubmitUserViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FSx-Th-bJf" customClass="SubmitUserViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KvM-dd-qZI">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -523,7 +533,7 @@
         <!--Holiday View Controller-->
         <scene sceneID="Ffg-cs-W1z">
             <objects>
-                <viewController id="XVO-ag-o4g" customClass="HolidayViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XVO-ag-o4g" customClass="HolidayViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QBS-eG-5jK">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -617,7 +627,7 @@
         <!--Clients-->
         <scene sceneID="gAY-cv-e6B">
             <objects>
-                <viewController id="k27-LQ-Gay" customClass="ClientViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="k27-LQ-Gay" customClass="ClientViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3IO-7E-Hts">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -676,7 +686,7 @@
         <!--Contact-->
         <scene sceneID="D0G-sR-O5e">
             <objects>
-                <tableViewController id="nuk-xT-qKe" customClass="ContactAdminViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="nuk-xT-qKe" customClass="ContactAdminViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="XQI-H9-FOs">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -775,7 +785,7 @@
         <!--About-->
         <scene sceneID="tmi-38-xi2">
             <objects>
-                <tableViewController id="vcd-IW-dC2" customClass="AboutTableViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="vcd-IW-dC2" customClass="AboutTableViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="jPa-Nh-Cq0">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -936,20 +946,20 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hkV-Ih-xas">
-                                        <rect key="frame" x="0.0" y="286.33333015441895" width="428" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="286.33333015441895" width="428" height="44.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hkV-Ih-xas" id="Zmy-VW-DaP">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="44.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device's name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHP-kp-4tO">
-                                                    <rect key="frame" x="19.999999999999993" y="11.000000000000002" width="114.33333333333331" height="20.666666666666671"/>
+                                                    <rect key="frame" x="19.999999999999993" y="10.999999999999998" width="114.33333333333331" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" name="color1"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UDID" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hb4-2m-C2P">
-                                                    <rect key="frame" x="367.66666666666669" y="11" width="40.333333333333314" height="21"/>
+                                                    <rect key="frame" x="367.66666666666669" y="11.000000000000002" width="40.333333333333314" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="color1"/>
                                                     <nil key="highlightedColor"/>
@@ -968,7 +978,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Yfe-Ok-5b7">
-                                        <rect key="frame" x="0.0" y="329.99999809265137" width="428" height="44"/>
+                                        <rect key="frame" x="0.0" y="330.66666221618652" width="428" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yfe-Ok-5b7" id="cXl-xy-tXf">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="44"/>
@@ -1000,7 +1010,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AzN-hp-NgM">
-                                        <rect key="frame" x="0.0" y="373.99999809265137" width="428" height="43.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="374.66666221618652" width="428" height="43.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AzN-hp-NgM" id="aYB-tx-Wsl">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="43.333332061767578"/>
@@ -1032,7 +1042,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hsW-42-Kiq">
-                                        <rect key="frame" x="0.0" y="417.33333015441895" width="428" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="417.9999942779541" width="428" height="44.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hsW-42-Kiq" id="KQY-qp-eTh">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="44.333332061767578"/>
@@ -1143,7 +1153,7 @@
         <!--Expenses View Controller-->
         <scene sceneID="Hx5-Hz-IaQ">
             <objects>
-                <viewController id="w0Z-w0-eFx" customClass="ExpensesViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="w0Z-w0-eFx" customClass="ExpensesViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nbz-xZ-Cmo">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1219,7 +1229,7 @@
         <!--Invoice-->
         <scene sceneID="Xwe-9d-Yxn">
             <objects>
-                <tableViewController id="ZMs-BR-fCY" customClass="InvoiceViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ZMs-BR-fCY" customClass="InvoiceViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ovd-QF-5DI">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1509,7 +1519,7 @@
         <!--New Invoice View Controller-->
         <scene sceneID="T0f-x4-SfF">
             <objects>
-                <viewController id="KW6-cu-I6E" customClass="NewInvoiceViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KW6-cu-I6E" customClass="NewInvoiceViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cIr-4m-482">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1660,7 +1670,7 @@
         <!--Monthly Calendar-->
         <scene sceneID="Bjg-Jn-KIb">
             <objects>
-                <viewController storyboardIdentifier="CalendarView" id="xKo-ZJ-kSM" customClass="CalendarViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalendarView" id="xKo-ZJ-kSM" customClass="CalendarViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2iO-XL-DVu">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1751,7 +1761,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calCell" id="paq-tC-97M" customClass="CalendarCell" customModule="mw_Harvest" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calCell" id="paq-tC-97M" customClass="CalendarCell" customModule="Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7ws-lq-Tdn">
@@ -1835,7 +1845,7 @@
         <!--Profile-->
         <scene sceneID="JK0-fs-HTb">
             <objects>
-                <tableViewController id="Ya1-rF-DHS" customClass="ProfileViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ya1-rF-DHS" customClass="ProfileViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="c9l-eO-ksp">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2031,7 +2041,7 @@
         <!--Weekly Calendar-->
         <scene sceneID="xh6-6e-fkB">
             <objects>
-                <viewController id="oKL-F0-Poq" customClass="WeeklyViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oKL-F0-Poq" customClass="WeeklyViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bR7-SP-2fc">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2122,7 +2132,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calCell" id="dd2-pJ-ej3" customClass="CalendarCell" customModule="mw_Harvest" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calCell" id="dd2-pJ-ej3" customClass="CalendarCell" customModule="Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0st-mI-68Z">
@@ -2208,7 +2218,7 @@
         <!--Timesheet entry-->
         <scene sceneID="xo3-Bs-2Yg">
             <objects>
-                <viewController id="sgC-5Q-26n" customClass="TimesheetEntryViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sgC-5Q-26n" customClass="TimesheetEntryViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vyi-SF-rLG">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2286,7 +2296,7 @@
         <!--New Client-->
         <scene sceneID="Cvg-71-Dgw">
             <objects>
-                <viewController id="Xjm-GL-eXr" customClass="NewClientViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Xjm-GL-eXr" customClass="NewClientViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wTa-hx-ANK">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2361,7 +2371,7 @@
         <!--New Client View Controller-->
         <scene sceneID="hcB-1L-JuF">
             <objects>
-                <viewController storyboardIdentifier="SuccessVC" id="iia-Sj-DYx" customClass="NewClientViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SuccessVC" id="iia-Sj-DYx" customClass="NewClientViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bK8-Pd-0QM">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2490,7 +2500,7 @@
         <!--Client-->
         <scene sceneID="Rm9-WC-xVd">
             <objects>
-                <tableViewController id="4tp-6S-zit" customClass="ClientInfoViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4tp-6S-zit" customClass="ClientInfoViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="wkE-7n-ZtX">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2684,7 +2694,7 @@
         <!--Holiday Info View Controller-->
         <scene sceneID="J7p-1O-Wi0">
             <objects>
-                <tableViewController id="iT5-qi-ANA" customClass="HolidayInfoViewController" customModule="mw_Harvest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="iT5-qi-ANA" customClass="HolidayInfoViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="qAX-Gw-xH0">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2732,7 +2742,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeZ-BW-Auk">
-                                                    <rect key="frame" x="20" y="11" width="78" height="32.666666666666664"/>
+                                                    <rect key="frame" x="20" y="11" width="77.333333333333329" height="32.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2764,7 +2774,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ycv-mN-zhT">
-                                                    <rect key="frame" x="20" y="11" width="72" height="32.666666666666664"/>
+                                                    <rect key="frame" x="20" y="11" width="71.333333333333329" height="32.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2828,7 +2838,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mi2-Qb-btc">
-                                                    <rect key="frame" x="20" y="11" width="82" height="32.666666666666664"/>
+                                                    <rect key="frame" x="20" y="11" width="81.333333333333329" height="32.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2938,6 +2948,7 @@
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <image name="eye.fill" catalog="system" width="128" height="78"/>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <image name="ios appa logo" width="262" height="278"/>
         <image name="load-icon-png-8" width="320" height="320"/>

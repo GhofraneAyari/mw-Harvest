@@ -141,7 +141,7 @@
 		25D758C9281841E300BE4C48 /* ContactAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAdminViewController.swift; sourceTree = "<group>"; };
 		25D758CC281941C600BE4C48 /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
 		25D758CE28195C7800BE4C48 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		25E3E2A227DA655100104852 /* mw-Harvest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mw-Harvest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25E3E2A227DA655100104852 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E3E2A527DA655200104852 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25E3E2A727DA655200104852 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		25E3E2AC27DA655200104852 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 		25E3E2A327DA655100104852 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				25E3E2A227DA655100104852 /* mw-Harvest.app */,
+				25E3E2A227DA655100104852 /* Tracker.app */,
 				25E3E2BB27DA655300104852 /* mw-HarvestTests.xctest */,
 				25E3E2C527DA655300104852 /* mw-HarvestUITests.xctest */,
 			);
@@ -478,7 +478,7 @@
 				25E2A737284DFA82006D6FC8 /* Charts */,
 			);
 			productName = "mw-Harvest";
-			productReference = 25E3E2A227DA655100104852 /* mw-Harvest.app */;
+			productReference = 25E3E2A227DA655100104852 /* Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		25E3E2BA27DA655300104852 /* mw-HarvestTests */ = {
@@ -849,7 +849,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mw-Harvest";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Tracker;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -878,7 +878,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mw-Harvest";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Tracker;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

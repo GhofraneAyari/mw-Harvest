@@ -27,8 +27,8 @@ class ProfileViewController: UITableViewController {
 
         var hoursByUser = Dictionary(uniqueKeysWithValues: zip(uids, hours))
         hoursByUser = hoursByUser.filter({ $0.key == user?.id })
-        let userHours = hoursByUser.map { $0.1 }
-        let sumHours = userHours.reduce(0, +)
+//        let userHours = hoursByUser.map { $0.1 }
+//        let sumHours = userHours.reduce(0, +)
 
         fullNameLabel.text = user?.displayName
         emailLabel.text = user?.userPrincipalName
@@ -44,8 +44,10 @@ class ProfileViewController: UITableViewController {
         initialsPicture(image: profilImage, first: firstname, last: lastname)
 
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        let hours = [120.0, 115.0, 152.0, 110.0, 100.0, 15.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        let hours = [120.0, 115.0, 152.0, 110.0, 100.0, 96.0, 115.0, 62.0, 120.0, 0.0, 0.0, 0.0]
         setChart(dataPoints: months, values: hours)
+        
+        weeklyHours()
     }
 
     @IBAction func sginOutButton(_ sender: Any) {
@@ -83,7 +85,9 @@ class ProfileViewController: UITableViewController {
             let intTime = Int(time)
             self.hours.append(intTime ?? 0)
             self.uids.append(uid)
+            self.weeklyHoursLabel.text = time
         }
+        
     }
 
     func initialsPicture(image: UIImageView, first: String, last: String) {
