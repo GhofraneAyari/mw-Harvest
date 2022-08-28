@@ -1,2 +1,2 @@
 # mw-Harvest
-Employee time tracking app
+Employee time and invoice tracking app, developed with Swift, UIKit, Microsoft Azure Active Directory and Firebase Firestore.
